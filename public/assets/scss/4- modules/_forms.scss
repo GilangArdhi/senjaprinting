@@ -1,0 +1,136 @@
+.search-bar {
+    display: none;
+    margin-right: 20px;
+
+    &--input {
+        display: inline-block;
+        width: 415px;
+        border: 1px solid $muted-text-color;
+    }
+
+    &--show {
+        display: inline-block;
+    }
+}
+
+.input-w-icon {
+    position: relative;
+
+    .input-icon {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+    }
+}
+
+.txt-input {
+    padding: 15px 45px 15px 28px;
+    border-radius: 50px;
+    font-size: 13px;
+    background-color: $light-bg-color;
+    border: 1px solid $muted-text-color;
+}
+
+.default-input {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.select-input {
+    padding: 15px 40px 15px 28px;
+    border-radius: 50px;
+    border: 1px solid $muted-text-color;
+    -webkit-appearance:none; /*For hiding default pointer of drop-down on Chrome*/
+    -moz-appearance:none;
+    cursor: pointer;
+    background-image: url("../images/select-arrow.svg");
+    background-repeat: no-repeat;
+    background-position: right 1.2em top 50%;
+    text-transform: uppercase;
+}
+
+.number-input {
+    padding: 15px 40px;
+    border-radius: 50px;
+    border: 1px solid $muted-text-color;
+}
+
+.checkbox {
+    &-wrapper {
+        position: relative;
+        margin: 20px 0;
+    }
+
+    &-input {
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+
+        &:checked ~ .checkbox-custom {
+            background-color: black;
+            border: transparent;
+        }
+    }
+
+    &-custom {
+        position: absolute;
+        top: -50%;
+        left: 0;
+        display: inline-block;
+        width: 26px;
+        height: 26px;
+        border: 1px solid $muted-text-color;
+        cursor: pointer;
+
+        & > svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &-label {
+        position: relative;
+        padding-left: 36px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+}
+
+.label {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+@media only screen and (max-width: 425px) {
+
+    .search-bar--input {
+        width: 300px;
+    }
+
+    .search-bar { 
+        top: 100px;
+    }
+}
+
+@media only screen and (max-width: 1250px) {
+
+    .search-bar {
+        margin-right: 0px;
+        padding: 0 10px;
+        top: 150px;
+        right: 50%;
+        transform: translateX(50%);
+
+        &.input-w-icon {
+            position: absolute;
+        }
+    }
+}

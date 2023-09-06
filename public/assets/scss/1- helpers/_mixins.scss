@@ -1,0 +1,32 @@
+@mixin fontFace($path, $family, $type: '', $svg:'', $weight: 400, $style: normal) {
+    @font-face {
+      font-family: $family;
+        src: url('#{$path}#{$type}.eot');
+        src: url('#{$path}#{$type}.eot?#iefix') format('embedded-opentype'), 
+            url('#{$path}#{$type}.woff2') format('woff2'), 
+            url('#{$path}#{$type}.woff') format('woff'), 
+            url('#{$path}#{$type}.ttf') format('truetype'), 
+            url('#{$path}#{$type}.svg##{$svg}') format('svg');
+      font-weight: $weight;
+      font-style: $style;
+    }
+}
+
+@mixin items4-GridMedia($width1, $width2) {
+
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  grid-template-areas: "col col col col";
+  justify-content: center;
+  align-content: center;
+
+  @media only screen and (max-width: $width1) {
+    grid-template-columns: repeat(2, 50%);
+    grid-template-areas: "col col" "col col";
+    }
+
+  @media only screen and (max-width: $width2){
+      grid-template-columns: 1fr;
+      grid-template-areas: "col";
+  }
+}

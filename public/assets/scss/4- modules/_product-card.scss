@@ -1,0 +1,113 @@
+.product-card {
+    position: relative;
+    width: 235px;
+
+    &__img {
+        width: 235px;
+        height: 405px;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__content {
+        margin: 30px 0;
+    }
+
+    &__title {
+        margin-bottom: 8px;
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    &__price {
+        font-size: 20px;
+        font-weight: 500;
+
+        &--new {
+            color: $secondary-color;
+            margin-right: 29px;
+        }
+
+        &--old {
+            color: $muted-text-color;
+        }
+    }
+
+    &__actions {
+        position: absolute;
+        display: flex;
+        /*to prevent flex items from stretching*/
+        align-items: center;
+        justify-content: space-between;
+        justify-items: center;
+        width: 100%;
+        padding: 18px 20px;
+    }
+}
+
+.product-cards-slider {
+    position: relative;
+    
+    .product-card {
+        margin: 0 37px;
+
+        @media only screen and (max-width: 768px) {
+            margin: 0 15px;
+        }
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &_right-arrow,
+    &_left-arrow {
+        position: absolute;
+        transform: translate(-50%, 50%);
+        cursor: pointer;
+
+        @media only screen and (max-width: 768px) {
+            display: none;
+        }
+    }
+
+    &_left-arrow {
+        top: 40%;
+        left: -50px;
+    }
+
+    &_right-arrow {
+        top: 40%;
+        right: -80px;
+    }
+
+    &__cards-container {
+        display: flex;
+        justify-content: space-between;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        scroll-behavior: smooth;
+    
+        &::-webkit-scrollbar {
+            height: 10px;
+        }
+    
+        &::-webkit-scrollbar-track {
+            background: $muted-text-color;
+            border-radius: 70px;
+        }
+    
+        &::-webkit-scrollbar-thumb {
+            background-color: #53535393;
+            border-radius: 70px;
+        }
+    
+    }    
+}

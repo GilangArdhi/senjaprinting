@@ -1,0 +1,49 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul, ol {
+	list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+input,
+label,
+select,
+button,
+textarea {
+	margin: 0;
+	border: 0;
+	padding: 0;
+	white-space: normal;
+	background: none;
+	line-height: 1.2;
+	font-family: inherit;
+}
+
+address {
+	font-style: normal;
+}
+
+table,
+thead,
+tbody,
+tfoot,
+tr,
+th,
+td {
+    border: none;
+    border-collapse: inherit;
+    border-spacing: 0;
+    border-color: inherit;
+    text-align: left;
+    font-weight: inherit;
+    -webkit-border-horizontal-spacing: 0;
+    -webkit-border-vertical-spacing: 0;
+}
