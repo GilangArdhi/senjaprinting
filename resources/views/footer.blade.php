@@ -77,7 +77,7 @@
 
           map = new Map(document.getElementById("map"), {
             center: { lat: -7.756014, lng: 110.409533 },
-            zoom: 8,
+            zoom: 16,
           });
         }
 

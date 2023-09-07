@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FotoProduct;
 use App\Models\User;
 use App\Models\Keranjang;
 use App\Models\Product;
@@ -33,9 +34,11 @@ class LandingPage extends Controller
         $idProduk = $request->query('id');
         $sablon = Product::all();
         $tampil = Product::where('id', $idProduk)->get();
+        $foto = FotoProduct::where('id_produk', $idProduk)->get();
+        // dd($foto);
         // dd($tampil);
         // dd($idProduk);
-        return view('landingpage.product-page', ['tampil' => $tampil, 'sablon' => $sablon]);
+        return view('landingpage.product-page', ['tampil' => $tampil, 'sablon' => $sablon, 'foto' => $foto]);
     }
 
     public function masukKeranjang(Request $request)

@@ -50,15 +50,18 @@
           <div class="product-display__images">
             <div class="product-display__side-images">
               <div class="product-display__side-image"><img src="{{asset('assets/images/'. $details->gambar)}}" alt=""></div>
+              @foreach ($foto as $ftproduk)
+              @csrf
+                <div class="product-display__side-image"><img src="{{asset('assets/images/'. $ftproduk->fotoProduk)}}" alt="gambar"></div>
+              @endforeach
+              <!-- <div class="product-display__side-image"><img src="images/product-page.png" alt=""></div>
               <div class="product-display__side-image"><img src="images/product-page.png" alt=""></div>
               <div class="product-display__side-image"><img src="images/product-page.png" alt=""></div>
               <div class="product-display__side-image"><img src="images/product-page.png" alt=""></div>
               <div class="product-display__side-image"><img src="images/product-page.png" alt=""></div>
               <div class="product-display__side-image"><img src="images/product-page.png" alt=""></div>
               <div class="product-display__side-image"><img src="images/product-page.png" alt=""></div>
-              <div class="product-display__side-image"><img src="images/product-page.png" alt=""></div>
-              <div class="product-display__side-image"><img src="images/product-page.png" alt=""></div>
-              <div class="product-display__side-image"><img src="images/product-page.png" alt=""></div>
+              <div class="product-display__side-image"><img src="images/product-page.png" alt=""></div> -->
             </div>
             <div class="product-display__main-image"><img src="{{asset('assets/images/'. $details->gambar)}}" alt=""></div>
           </div>
