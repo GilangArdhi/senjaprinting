@@ -41,6 +41,7 @@ class LandingPage extends Controller
         return view('landingpage.product-page', ['tampil' => $tampil, 'sablon' => $sablon, 'foto' => $foto]);
     }
 
+    
     public function masukKeranjang(Request $request)
     {
         $id_user = Auth::id();
@@ -125,11 +126,15 @@ class LandingPage extends Controller
         // $restoran = User::get();
         // $location = $request->input('location');
         
-
-        // Lakukan query sesuai dengan keyword dan location yang diterima
-        $sablon = Product::where('judul', 'LIKE', '%' . $keyword . '%')->get();
-            // dd($food);
-            
-        return view('landingpage.search', ['sablon' => $sablon]);
+        if (!empty($keyword)){
+            // Lakukan query sesuai dengan keyword dan location yang diterima
+            $sablon = Product::where('judul', 'LIKE', '%' . $keyword . '%')->get();
+                // dd($food);
+                
+            return view('landingpage.search', ['sablon' => $sablon]);
+        } else {
+            $sablon = Product::all();
+            return view('landingpage.index', ['sablon' => $sablon]);
+        }
     }
 }

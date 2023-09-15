@@ -47,7 +47,7 @@
               <tr>
                 <td>
                   <div class="product-cart">
-                    <div class="product-card__img" style="height: 80px; width: 77px;"><img src="{{asset('assets/images/'. $items->gambar)}}" alt="gambar produk" style="border-radius: 50%;" ></div>
+                    <div class="product-card__img" style="height: 80px; width: 77px;"><img src="{{asset('storage/assets/images/'. $items->gambar)}}" alt="gambar produk" style="border-radius: 50%;" ></div>
                     <div class="product-cart__info">
                       <div class="product-cart__info-title">{{ $items->judul }}</div>
                       <div class="product-cart__info-nb">{{ $items->id_produk }}</div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Http\RedirectResponse;
 
@@ -21,17 +22,26 @@ class AuthController extends Controller
     {
         return view('auth.signup');
     }
+    public function verifyr()
+    {
+        return view('auth.verify');
+    }
 
     function postdaftar(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'nama' => 'required',
+            'username' => 'required',
+            'password' => 'required|min:6',
+            'email' => 'required|email',
+            'alamat' => 'required',
+            'no_hp' => 'required',
             // Tambahkan aturan validasi lain sesuai kebutuhan Anda.
         ]);
     
         if ($validator->fails()) {
             return redirect()
-                ->route('nama_rute_form')
+                ->route('daftar')
                 ->withErrors($validator)
                 ->withInput();
         }
@@ -46,19 +56,22 @@ class AuthController extends Controller
             'role' => 'pelanggan',
 
         ]);
-        return redirect('masuk')->with('success', 'User berhasil dibuat');
+        $daftar->sendEmailVerificationNotification();
+        return back()->with('success', 'User berhasil dibuat Silakan Cek email Untuk verifikasi');
+        // return redirect()->route('verification.notice');
+        // return redirect('auth.verify');
     }
 
     public function masuk(Request $request)
     {
         $credentials = $request->only('email', 'password');
 
+        // dd($credentials);
         if (Auth::attempt($credentials)) {
             
             // Jika autentikasi berhasil
             if (Auth::user()->isAdminRestoran()) {
                 // Jika pengguna memiliki peran admin restoran
-
                 return redirect()->intended('/dashboard');
             } elseif (Auth::user()->isPelanggan()) {
                 // Jika pengguna memiliki peran pelanggan

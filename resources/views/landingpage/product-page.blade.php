@@ -49,10 +49,10 @@
           @csrf
           <div class="product-display__images">
             <div class="product-display__side-images">
-              <div class="product-display__side-image"><img src="{{asset('assets/images/'. $details->gambar)}}" alt=""></div>
+              <div class="product-display__side-image"><img src="{{asset('storage/assets/images/'. $details->gambar)}}" alt=""></div>
               @foreach ($foto as $ftproduk)
               @csrf
-                <div class="product-display__side-image"><img src="{{asset('assets/images/'. $ftproduk->fotoProduk)}}" alt="gambar"></div>
+                <div class="product-display__side-image"><img src="{{asset('storage/assets/images/'. $ftproduk->fotoProduk)}}" alt="gambar"></div>
               @endforeach
               <!-- <div class="product-display__side-image"><img src="images/product-page.png" alt=""></div>
               <div class="product-display__side-image"><img src="images/product-page.png" alt=""></div>
@@ -63,7 +63,7 @@
               <div class="product-display__side-image"><img src="images/product-page.png" alt=""></div>
               <div class="product-display__side-image"><img src="images/product-page.png" alt=""></div> -->
             </div>
-            <div class="product-display__main-image"><img src="{{asset('assets/images/'. $details->gambar)}}" alt=""></div>
+            <div class="product-display__main-image"><img src="{{asset('storage/assets/images/'. $details->gambar)}}" alt=""></div>
           </div>
           <div class="product-display__details">
             <div class="product-display__first-row"><span class="tag">Sale</span>
@@ -139,7 +139,7 @@
                {{$details->deskripsi}}
               </p>
             </div>
-            <div class="tab-content__item">
+            <!-- <div class="tab-content__item">
               <svg xmlns="http://www.w3.org/2000/svg" width="30.15" height="67" viewBox="0 0 30.15 67">
                 <g transform="translate(-18 -2)" opacity="0.1">
                   <path d="M25.817,69H40.333a7.826,7.826,0,0,0,7.817-7.817V38.85a1.117,1.117,0,0,0-1.117-1.117h-3.35V3.117A1.117,1.117,0,0,0,42.567,2H32.517A1.117,1.117,0,0,0,31.4,3.117V37.733H29.167V19.867a1.13,1.13,0,0,0-.079-.415l-2.233-5.583a1.117,1.117,0,0,0-2.075,0l-2.233,5.583a1.13,1.13,0,0,0-.079.415V37.733h-3.35A1.117,1.117,0,0,0,18,38.85V61.183A7.826,7.826,0,0,0,25.817,69ZM33.633,4.233H41.45V6.467H35.867V8.7H41.45v2.233H38.1v2.233h3.35V15.4H35.867v2.233H41.45v2.233H38.1V22.1h3.35v2.233H35.867v2.233H41.45V28.8H38.1v2.233h3.35v2.233H35.867V35.5H41.45v2.233H33.633Zm-6.7,19.638L24.7,26.1V23.217h2.233ZM24.7,29.262l2.233-2.233v3.542L24.7,32.8Zm0-9.181,1.117-2.792,1.117,2.792v.9H24.7Zm0,15.881,2.233-2.233v4H24.7Zm-4.467,4H45.917V61.183a5.59,5.59,0,0,1-5.583,5.583H25.817a5.59,5.59,0,0,1-5.583-5.583Z"></path>
@@ -148,7 +148,7 @@
               </svg>
               <div class="default-title--sm">Material(s) and care</div>
               <p class="default-paragraph">Body: 98% COTTON - 2% ELASTANE</p><img src="images/product-info.png" alt="product information">
-            </div>
+            </div> -->
               @endforeach
           </div>
           <div class="product-page__tab-content grid-tab" id="product-reviews" style="display: none;">
@@ -335,7 +335,7 @@
                             <path d="M17.679,6A4.631,4.631,0,0,0,14.25,7.554,4.631,4.631,0,0,0,10.821,6,5.045,5.045,0,0,0,6,11.233c0,4.212,7.478,10.817,7.8,11.1a.688.688,0,0,0,.9.008c.319-.27,7.805-6.664,7.805-11.1A5.045,5.045,0,0,0,17.679,6ZM14.257,20.9c-2.271-2.079-6.882-6.877-6.882-9.663a3.673,3.673,0,0,1,3.446-3.858,3.361,3.361,0,0,1,2.843,1.679.687.687,0,0,0,1.172,0,3.362,3.362,0,0,1,2.843-1.679,3.673,3.673,0,0,1,3.446,3.858C21.125,14.179,16.527,18.876,14.257,20.9Z" transform="translate(-6 -6)"></path>
                           </svg>
                         </div>
-                      </div><a href="#" onclick="event.preventDefault(); document.getElementById('detailForm{{ $produk->id }}').submit();"><img src="{{asset('assets/images/'. $produk->gambar)}}" alt="product image"/></a>
+                      </div><a href="#" onclick="event.preventDefault(); document.getElementById('detailForm{{ $produk->id }}').submit();"><img src="{{asset('storage/assets/images/'. $produk->gambar)}}" alt="product image"/></a>
                     </div>
                     <div class="product-card__content">
                       <h2 class="product-card__title"> 

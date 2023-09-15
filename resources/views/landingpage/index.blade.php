@@ -87,7 +87,7 @@
     </header>
     <div class="container">
       <main class="wrapper">
-        <div class="container-card-ad spacing">
+        <!-- <div class="container-card-ad spacing">
           <div class="card-ad card-ad--img-1 a">
             <div class="card-ad__content">
               <h3 class="card-ad__title">New arrivals are now in!</h3><a class="btn btn--white" href="#">Show collection</a>
@@ -103,10 +103,10 @@
               <h3 class="card-ad__title">Sale this summer</h3><a class="btn btn--white" href="#">VIEW ALL</a>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="row spacing">
           <div class="sub-row">
-            <h1 class="section-title--default">Selected just for you</h1><a class="btn btn--default" href="#">Show more</a>
+            <h1 class="section-title--default">Selected just for you</h1><a class="btn btn--default" href="product.search">Show more</a>
           </div>
           <div class="product-cards-slider">
             <svg class="product-cards-slider_left-arrow" id="leftArrow" xmlns="http://www.w3.org/2000/svg" width="23.336" height="20.281" viewBox="0 0 23.336 20.281">

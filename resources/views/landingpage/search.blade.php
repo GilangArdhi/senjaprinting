@@ -190,7 +190,7 @@
                           <path d="M17.679,6A4.631,4.631,0,0,0,14.25,7.554,4.631,4.631,0,0,0,10.821,6,5.045,5.045,0,0,0,6,11.233c0,4.212,7.478,10.817,7.8,11.1a.688.688,0,0,0,.9.008c.319-.27,7.805-6.664,7.805-11.1A5.045,5.045,0,0,0,17.679,6ZM14.257,20.9c-2.271-2.079-6.882-6.877-6.882-9.663a3.673,3.673,0,0,1,3.446-3.858,3.361,3.361,0,0,1,2.843,1.679.687.687,0,0,0,1.172,0,3.362,3.362,0,0,1,2.843-1.679,3.673,3.673,0,0,1,3.446,3.858C21.125,14.179,16.527,18.876,14.257,20.9Z" transform="translate(-6 -6)"></path>
                         </svg>
                       </div>
-                    </div><a href="#" onclick="event.preventDefault(); document.getElementById('detailForm{{ $produk->id }}').submit();"><img src="{{asset('assets/images/'. $produk->gambar)}}" alt="product image"/></a>
+                    </div><a href="#" onclick="event.preventDefault(); document.getElementById('detailForm{{ $produk->id }}').submit();"><img src="{{asset('storage/assets/images/'. $produk->gambar)}}" alt="product image"/></a>
                   </div>
                   <div class="product-card__content">
                     <h2 class="product-card__title"> 

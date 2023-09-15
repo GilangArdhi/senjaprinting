@@ -12,6 +12,7 @@
           </svg>Back to store</a>
         <div class="auth-block--center">
           <h1 class="auth-title">Log in</h1>
+          <p class="auth-paragraph">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
           @if ($errors->any())
             <div class="alert alert-danger">
               <ul>
@@ -23,7 +24,6 @@
               </ul>
             </div>
           @endif
-          <p class="auth-paragraph">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
           <form action="/masuk" method="POST">
             @csrf
             <input class="txt-input default-input" type="email" name="email" placeholder="E-mail">
@@ -39,14 +39,15 @@
               </div>
             </div>
             <div class="auth-row">
-              <label class="checkbox-label" for="remember-me">Keep me signed in
+              <!-- <label class="checkbox-label" for="remember-me">Keep me signed in
                 <input class="checkbox-input" type="checkbox" name="remember-me" id="remember-me"><span class="checkbox-custom" role="checkbox" aria-checked="false" aria-labelledby="remember-me">
                   <svg xmlns="http://www.w3.org/2000/svg" width="13.371" height="11.063" viewBox="0 0 13.371 11.063">
                     <path d="M11.763.25l-.876.929-6.1,6.473L2.955,5.821l-.9-.9-1.8,1.8.9.9L3.91,10.384l.929.929.9-.955,7-7.428L13.62,2Z" transform="translate(-0.249 -0.25)" fill="#fff"></path>
                   </svg></span>
-              </label><a class="auth-link" href="#">Forgot password?</a>
+              </label> -->
+              <a class="auth-link" href="#" style="margin: 10px">Forgot password?</a>
             </div>
-            <div class="auth-row-2">
+            <!-- <div class="auth-row-2">
               <button class="btn-social-media btn-fb">
                 <svg class="btn-social-media__icon" xmlns="http://www.w3.org/2000/svg" width="9.493" height="17.559" viewBox="0 0 9.493 17.559">
                   <path id="Path_4" data-name="Path 4" d="M31.213,0,28.936,0a4,4,0,0,0-4.211,4.321V6.314H22.435a.358.358,0,0,0-.358.358V9.559a.358.358,0,0,0,.358.358h2.289V17.2a.358.358,0,0,0,.358.358H28.07a.358.358,0,0,0,.358-.358V9.917H31.1a.358.358,0,0,0,.358-.358V6.672a.358.358,0,0,0-.358-.358H28.428V4.625c0-.812.193-1.224,1.251-1.224h1.534a.358.358,0,0,0,.358-.358V.362A.358.358,0,0,0,31.213,0Z" transform="translate(-22.077)" fill="#fff"></path>
@@ -66,7 +67,7 @@
                   </g>
                 </svg><span>Gmail</span>
               </button>
-            </div>
+            </div> -->
             <button type="submit" class="btn btn--primary auth-btn">Sign in</button>
             <div class="auth-info">Not a member yet?<a class="auth-link--dark" href="daftar">Sign up</a></div>
           </form>

@@ -140,7 +140,7 @@
                   <tr class="scrollable-div">
                     <td>
                       <div class="product-cart">
-                        <div class="product-card__img" style="height: 75px; width: 78px;"><img src="{{asset('assets/images/'. $details->gambar)}}" alt="gambar produk" style="border-radius: 50%;" ></div>
+                        <div class="product-card__img" style="height: 75px; width: 78px;"><img src="{{asset('storage/assets/images/'. $details->gambar)}}" alt="gambar produk" style="border-radius: 50%;" ></div>
                           <div class="product-cart__info">
                             <div class="kartu-content" style="font-size: 14px;">{{ $details->judul }}</div>
                             <!-- <div class="product-cart__info-nb">#{{ $details->id_produk }}</div> -->

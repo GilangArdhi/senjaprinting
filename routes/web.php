@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\LandingPage;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Auth\VerificationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,19 +21,28 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [LandingPage::class, 'index']);
 Route::get('masuk', [AuthController::class, 'login']);
 Route::get('daftar', [AuthController::class, 'daftar']);
+Route::get('resende', [AuthController::class, 'verifyr']);
+Auth::routes([ 'verify' => true ]);
 Route::get('detail', [LandingPage::class, 'detail'])->name('detail');
 Route::get('/product/search', [LandingPage::class, 'search'])->name('product.search');
+// Rute kustom untuk tampilan verifikasi
+// Route::get('/verify-email', [VerificationController::class,'show'])->name('verification.notice');
+Route::get('/resend-verification', [VerificationController::class,'resend'])->name('verification.resend');
 
 Route::post('/masuk', [AuthController::class, 'masuk'])->name('masuk');
 Route::post('daftar', [AuthController::class, 'postdaftar'])->name('daftar');
 
-Route::middleware(['auth', 'role:restoran'])->group(function () {
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'admin']);
+    Route::post('insert', [AdminController::class, 'insert']);
+    Route::post('edit', [AdminController::class, 'edit']);
+    Route::post('delete', [AdminController::class, 'delete']);
     // Route::get('/dashboard', [DashboardController::class, 'index']);
 });
 
 Route::middleware(['auth'])->group(function () {
     // Route::get('/dashboard', [DashboardController::class, 'index']);
-    Route::post('/logout', [LandingPage::class, 'logout']);
+    Route::get('/logout', [AuthController::class, 'logout']);
 });
 
 Route::middleware(['auth', 'role:pelanggan'])->group(function(){
@@ -41,3 +52,7 @@ Route::middleware(['auth', 'role:pelanggan'])->group(function(){
     Route::get('/pembayaran', [LandingPage::class, 'pembayaran']);
     Route::post('/api/donation', [DonationController::class, 'store'])->name('api.donation.store');
 }) ;
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
