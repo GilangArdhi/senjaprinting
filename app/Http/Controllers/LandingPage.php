@@ -134,7 +134,7 @@ class LandingPage extends Controller
             return view('landingpage.search', ['sablon' => $sablon]);
         } else {
             $sablon = Product::all();
-            return view('landingpage.index', ['sablon' => $sablon]);
+            return view('landingpage.search', ['sablon' => $sablon]);
         }
     }
 }

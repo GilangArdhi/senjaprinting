@@ -35,6 +35,7 @@ Route::post('daftar', [AuthController::class, 'postdaftar'])->name('daftar');
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'admin']);
     Route::post('insert', [AdminController::class, 'insert']);
+    Route::get('mengedit/{id}', [AdminController::class, 'details'])->name('mengedit');
     Route::post('edit', [AdminController::class, 'edit']);
     Route::post('delete', [AdminController::class, 'delete']);
     // Route::get('/dashboard', [DashboardController::class, 'index']);

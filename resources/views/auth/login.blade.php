@@ -6,7 +6,7 @@
   <body>
     @include('header')
     <div class="top-spacing">
-      <div class="container"><a class="back-link" href="#"> 
+      <div class="container"><a class="back-link" href="/"> 
           <svg xmlns="http://www.w3.org/2000/svg" width="13.336" height="11.59" viewBox="0 0 13.336 11.59">
             <path d="M5.794,0,.963,4.835,0,5.8l.963.963L5.794,11.59l.963-.961-4.15-4.15H13.336V5.118H2.606L6.757.965Z"></path>
           </svg>Back to store</a>
@@ -28,9 +28,9 @@
             @csrf
             <input class="txt-input default-input" type="email" name="email" placeholder="E-mail">
             <div class="input-w-icon">
-              <input class="txt-input default-input" type="password" name="password" placeholder="Password">
+              <input class="txt-input default-input" type="password" name="password" id="inputPass" placeholder="Password">
               <div class="svg" style="transform: translateY(-38px)">
-                <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="21.174" height="14.899">
+                <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="21.174" height="14.899" onclick="tampilpw()">
                   <g fill="gray">
                     <path d="M20.977 6.859c-.178-.223-4.677-5.456-10.356-5.456a10.315 10.315 0 00-3.341.579l7.349 5.568a4.149 4.149 0 00-.334-3.519 17.207 17.207 0 014.766 3.407 19.661 19.661 0 01-2.16 1.848l1.492 1.136a20.654 20.654 0 002.584-2.405.937.937 0 000-1.158z"></path>
                     <path d="M19.775 13.273L2.515.173a.892.892 0 00-1.073 1.426l2.606 1.982A19.7 19.7 0 00.217 6.859a.881.881 0 000 1.158c.178.223 4.677 5.456 10.378 5.456a11.345 11.345 0 004.877-1.2l3.207 2.45a.96.96 0 00.535.178.865.865 0 00.713-.356.908.908 0 00-.152-1.272zm-9.176-1.6c-3.831 0-7.194-2.962-8.463-4.231a17.571 17.571 0 013.43-2.695l.869.646a4.605 4.605 0 00-.067.779 4.23 4.23 0 004.227 4.227 3.975 3.975 0 001.848-.445l1.382 1.045a8.293 8.293 0 01-3.23.671z"></path>
@@ -88,5 +88,16 @@
     <div class="container">
       @include('footer')
     </div>
+    <script>
+        function tampilpw() {
+            var inputPassword = document.getElementById("inputPass");
+            
+            if (inputPassword.type === "password") {
+                inputPassword.type = "text";
+            } else {
+                inputPassword.type = "password";
+            }
+        }
+    </script>
   </body>
 </html>

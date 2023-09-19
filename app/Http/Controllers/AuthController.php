@@ -57,7 +57,8 @@ class AuthController extends Controller
 
         ]);
         $daftar->sendEmailVerificationNotification();
-        return back()->with('success', 'User berhasil dibuat Silakan Cek email Untuk verifikasi');
+        return redirect('masuk')->with('success', 'User berhasil dibuat Silakan Cek email Untuk verifikasi');
+        // return back()->with('success', 'User berhasil dibuat Silakan Cek email Untuk verifikasi');
         // return redirect()->route('verification.notice');
         // return redirect('auth.verify');
     }

@@ -151,26 +151,32 @@
                                                     <div class="btn-group d-flex justify-content-around gap-4">
                                                         <div class="btn-group d-flex justify-content-around gap-4">
                                                             <!-- Button trigger modal -->
-                                                            <button type="button" name="btnSubmit" value="{{$produk->id}}" class="btn btn-secondary btn-sm"
+                                                            <form action="{{ route('mengedit', ['id' => $produk->id]) }}" method="GET">
+                                                                @csrf
+                                                                <button type="submit" name="btnSubmit" value="{{$produk->id}}" class="btn btn-secondary btn-sm">
+                                                                    Edit
+                                                                </button>
+                                                            </form>
+                                                            <!-- <button type="button" name="btnSubmit" value="{{$produk->id}}" class="btn btn-secondary btn-sm"
                                                                 data-bs-toggle="modal" data-bs-target="#editModal-{{$produk->id}}">
                                                                 Edit
-                                                            </button>
+                                                            </button> -->
 
                                                             <!-- The Modal -->
-                                                            <div class="modal fade" id="editModal-{{$produk->id}}">
+                                                            <!-- <div class="modal fade" id="editModal-{{$produk->id}}">
                                                                 <div class="modal-dialog">
                                                                     <div class="modal-content">
 
-                                                                        <!-- Modal Header -->
+                                                                        < !-- Modal Header - ->
                                                                         <div class="modal-header">
                                                                             <h4 class="modal-title">Form Edit
                                                                             </h4>
                                                                             <button type="button" class="btn-close"
                                                                                 data-bs-dismiss="modal"></button>
                                                                         </div>
-                                                                        <!-- Modal body -->
+                                                                        < !-- Modal body - ->
                                                                         <div class="modal-body">
-                                                                        <!-- < ?php echo form_open('Jadwal/editJadwal')?> -->
+                                                                        < !-- < ?php echo form_open('Jadwal/editJadwal')?> - ->
                                                                             <Form action="{{ url('edit') }}" method="POST">
                                                                                 @csrf
                                                                                 <div class="form-group">
@@ -215,7 +221,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
+                                                            </div> -->
                                                         </div>
                                                         <Form action="{{ url('delete') }}" method="POST">
                                                             @csrf
