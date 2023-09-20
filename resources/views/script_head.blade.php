@@ -13,5 +13,41 @@
     margin: 0;
     padding: 0;
   }
+  /* CSS untuk desktop (lebar > 600px) */
+  @media (min-width: 601px) {
+    .element {
+      width: 600px;
+    }
+    .jarak{
+      display: true;
+    }
+    .tampilkan{
+      display: none;
+    }
+  }
+
+  /* CSS untuk perangkat mobile (lebar <= 600px) */
+  @media (max-width: 600px) {
+    .element {
+      width: 300px;
+    }
+    .jarak{
+      display: none;
+    }
+    .tampilkan{
+      display: true;
+    }
+  }
+  #rightElement {
+    display: none; /* Awalnya elemen disembunyikan */
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px; /* Sesuaikan lebar sesuai kebutuhan */
+    background-color: lightgray;
+    padding: 10px;
+    box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
 </style>
 <title>Senja Printing</title>

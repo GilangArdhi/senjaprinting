@@ -1,15 +1,15 @@
 <footer class="spacing">
         <div class="footer">
-          <div id="map" style="justify-self: self-start; width: 600px; height: 200px"></div>
-            <!-- <h3 class="footer__title">HELP</h3>
-            <ul>
-              <li class="footer__link"><a href="#">Order Status</a></li>
-              <li class="footer__link"><a href="#">Shipping and Delivery</a></li>
-              <li class="footer__link"><a href="#">Returns</a></li>
-              <li class="footer__link"><a href="#">Payment Options</a></li>
-              <li class="footer__link"><a href="#">Contact Us</a></li>
-            </ul> -->
-          <div class="footer__group-links">
+          <!-- <h3 class="footer__title">HELP</h3>
+          <ul>
+            <li class="footer__link"><a href="#">Order Status</a></li>
+            <li class="footer__link"><a href="#">Shipping and Delivery</a></li>
+            <li class="footer__link"><a href="#">Returns</a></li>
+            <li class="footer__link"><a href="#">Payment Options</a></li>
+            <li class="footer__link"><a href="#">Contact Us</a></li>
+          </ul> -->
+          <div class="footer__group-links element" >
+              <div id="map" style="justify-self: self-start; height: 200px;"></div>
             <!-- <h3 class="footer__title">INFORMATION</h3>
             <ul>
               <li class="footer__link"><a href="#">Gift Cards</a></li>
@@ -20,6 +20,16 @@
             </ul> -->
           </div>
           <div class="footer__group-links">
+            <!-- <h3 class="footer__title">HELPFUL LINKS</h3>
+            <ul>
+              <li class="footer__link"><a href="#">Comapany Overview</a></li>
+              <li class="footer__link"><a href="#">Made in USA</a></li>
+              <li class="footer__link"><a href="#">Careers</a></li>
+              <li class="footer__link"><a href="#">Idea Submission</a></li>
+              <li class="footer__link"><a href="#">Student Discount</a></li>
+            </ul> -->
+          </div>
+          <div class="footer__group-links jarak">
             <!-- <h3 class="footer__title">HELPFUL LINKS</h3>
             <ul>
               <li class="footer__link"><a href="#">Comapany Overview</a></li>
@@ -100,4 +110,16 @@
       }
 
         initMap();
+      </script>
+      <script>
+        document.getElementById("showButton").addEventListener("click", function() {
+          var rightElement = document.getElementById("rightElement");
+          
+          // Toggle visibilitas elemen
+          if (rightElement.style.display === "none") {
+            rightElement.style.display = "block";
+          } else {
+            rightElement.style.display = "none";
+          }
+        });
       </script>
