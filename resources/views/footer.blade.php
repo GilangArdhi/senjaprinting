@@ -74,43 +74,29 @@
         <p class="footer__credit">SENJA PRINTING © 2020.</p>
       </footer>
       <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
-        ({key: "AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg", v: "weekly"});</script>
-      <script async
-        src="https://maps.googleapis.com/maps/api/js?key={{env('GOOGLE_MAPS_API_KEY')}}&callback=initMap" defer>
-      </script>
+    ({key: "AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg", v: "weekly"});</script>
+      <script async src="https://maps.googleapis.com/maps/api/js?key={{env('GOOGLE_MAPS_API_KEY')}}&callback=initMap" defer></script>
       <script>
-        let map;
-        let marker;
+          function initMap() {
+              const titikKoordinat = { lat: -7.756014, lng: 110.409533 };
+              var mapOptions = {
+                  zoom: 16,
+                  center: titikKoordinat
+              }
+              var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-      function initMap() {
-          const titikKoordinat = { lat: -7.756014, lng: 110.409533 };
-          
-          map = new google.maps.Map(document.getElementById("map"), {
-              center: titikKoordinat,
-              zoom: 16,
-          });
+              var marker = new google.maps.Marker({
+                  position: titikKoordinat,
+                  title: "Hello World!"
+              });
 
-          marker = new google.maps.Marker({
-              position: titikKoordinat,
-              map: map,
-              title: 'Ini adalah titik koordinat yang ditandai',
-              icon: {
-                  url: 'https://url-gambar-ikon-tanda-merah.png', // URL gambar ikon tanda merah
-                  scaledSize: new google.maps.Size(30, 30), // Ukuran ikon
-              },
-          });
+              // To add the marker to the map, call setMap();
+              marker.setMap(map);
+          }
 
-          const infoWindow = new google.maps.InfoWindow({
-              content: 'Ini adalah info window untuk titik koordinat yang ditandai.'
-          });
-
-          marker.addListener('click', () => {
-              infoWindow.open(map, marker);
-          });
-      }
-
-        initMap();
+          initMap();
       </script>
+
       <script>
         document.getElementById("showButton").addEventListener("click", function() {
           var rightElement = document.getElementById("rightElement");

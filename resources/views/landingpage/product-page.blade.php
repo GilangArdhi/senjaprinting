@@ -99,6 +99,11 @@
                     <option value="XL">XL </option>
                   </select>
                 </div>
+                @error('size')
+                  <span class="invalid-feedback" role="alert">
+                    <strong style="color: red;">Silahkan Pilih Ukuran Produk</strong>
+                  </span>
+                @enderror
               </div>
               <div class="product-display__row"><span class="product-display__row-title">Quantity:</span>
                 <div>
@@ -370,5 +375,6 @@
     </div>
     <script defer src={{ asset ('assets/js/product-cards-slider.js') }}></script>
     <script src={{ asset('assets/js/product-page.js')}}></script>
+    
   </body>
 </html>

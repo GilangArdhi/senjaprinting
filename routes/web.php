@@ -25,9 +25,10 @@ Route::get('resende', [AuthController::class, 'verifyr']);
 Auth::routes([ 'verify' => true ]);
 Route::get('detail', [LandingPage::class, 'detail'])->name('detail');
 Route::get('/product/search', [LandingPage::class, 'search'])->name('product.search');
+Route::get('/products/filter', [LandingPage::class, 'filterBySize'])->name('products.filter');
 // Rute kustom untuk tampilan verifikasi
 // Route::get('/verify-email', [VerificationController::class,'show'])->name('verification.notice');
-Route::get('/resend-verification', [VerificationController::class,'resend'])->name('verification.resend');
+// Route::get('/resend-verification', [VerificationController::class,'resend'])->name('verification.resend');
 
 Route::post('/masuk', [AuthController::class, 'masuk'])->name('masuk');
 Route::post('daftar', [AuthController::class, 'postdaftar'])->name('daftar');
@@ -50,6 +51,7 @@ Route::middleware(['auth', 'role:pelanggan'])->group(function(){
     Route::post('masuk-keranjang', [LandingPage::class, 'masukKeranjang']);
     Route::get('lihatKeranjang', [LandingPage::class, 'Keranjang'])->name('lihatKeranjang');
     Route::get('edit-keranjang', [LandingPage::class, 'editKeranjang']);
+    Route::post('hapus-keranjang', [LandingPage::class, 'deleteItemKeranjang'])->name('hapus-keranjang');
     Route::get('/pembayaran', [LandingPage::class, 'pembayaran']);
     Route::post('/api/donation', [DonationController::class, 'store'])->name('api.donation.store');
 }) ;

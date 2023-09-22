@@ -61,11 +61,16 @@
                 </td>
                 <td>Rp. {{$items->harga}}</td>
                 <td>
-                  <div class="cancel-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="11.502" height="11.5" viewBox="0 0 11.502 11.5">
-                      <path d="M19.127,8.117a.833.833,0,0,0-1.18,0l-4.325,4.325L9.3,8.117A.834.834,0,0,0,8.117,9.3l4.325,4.325L8.117,17.947A.834.834,0,0,0,9.3,19.125L13.622,14.8l4.325,4.325a.834.834,0,1,0,1.182-1.177L14.8,13.622,19.127,9.3A.837.837,0,0,0,19.127,8.117Z" transform="translate(-7.873 -7.872)"></path>
-                    </svg>
-                  </div>
+                  <form id="deleteForm{{ $items->id }}" action="{{ route('hapus-keranjang') }}" method="POST">
+                    @csrf
+                    <div class="cancel-btn" id="cancelBtn" onclick="event.preventDefault(); document.getElementById('deleteForm{{ $items->id }}').submit();">
+                      <input type="hidden" name="cancel" id="cancel" value="{{$items->id}}">
+                      <input type="hidden" name="size" id="size" value="{{$items->ukurandipesan}}">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="11.502" height="11.5" viewBox="0 0 11.502 11.5">
+                        <path d="M19.127,8.117a.833.833,0,0,0-1.18,0l-4.325,4.325L9.3,8.117A.834.834,0,0,0,8.117,9.3l4.325,4.325L8.117,17.947A.834.834,0,0,0,9.3,19.125L13.622,14.8l4.325,4.325a.834.834,0,1,0,1.182-1.177L14.8,13.622,19.127,9.3A.837.837,0,0,0,19.127,8.117Z" transform="translate(-7.873 -7.872)"></path>
+                      </svg>
+                    </div>
+                  </form>
                 </td>
               </tr>
               @endforeach

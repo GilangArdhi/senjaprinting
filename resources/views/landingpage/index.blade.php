@@ -408,7 +408,7 @@
         <div class="spacing">
           <h1 class="section-title--default title--center">Products in today</h1>
           <div class="products-grid-container">
-          @foreach ($sablon as $produk)
+          @foreach ($terbaru as $produk)
               <form id="detailForm{{ $produk->id }}" action="{{ route('detail', ['id' => request('id')]) }}" method="GET">
                 @csrf
                 <div class="product-card">

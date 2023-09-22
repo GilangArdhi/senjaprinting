@@ -26,7 +26,8 @@ class LandingPage extends Controller
         //     $sablon[$index]['kadaluarsa'] = $date;
         // }
         // dd($sablon);
-        return view('landingpage.index', ['sablon' => $sablon]);
+        $terbaru = DB::table('produk')->orderBy('updated_at', 'asc')->take(5)->get();
+        return view('landingpage.index', ['sablon' => $sablon, 'terbaru' => $terbaru]);
     }
 
     //mengarahkan ke halaman detail produk
@@ -41,14 +42,19 @@ class LandingPage extends Controller
         return view('landingpage.product-page', ['tampil' => $tampil, 'sablon' => $sablon, 'foto' => $foto]);
     }
 
-    
+    // Memasukkan Item Ke keranjang User
     public function masukKeranjang(Request $request)
     {
+        $validatedData = $request->validate([
+            'size' => 'required|in:S,M,L,XL',
+            // Tambahkan aturan validasi lainnya jika diperlukan
+        ]);
+        
         $id_user = Auth::id();
         $id_produk = $request->id;
         $jmlBarang = $request->quantity;
         $ukuran = $request->input('size');
-        $keranjang = Keranjang::where('id_pelanggan', $id_user)->where('id_produk', $id_produk)->where('has_bought', false)->first();
+        $keranjang = Keranjang::where('id_pelanggan', $id_user)->where('id_produk', $id_produk)->where('ukurandipesan', $ukuran)->where('has_bought', false)->first();
 
         if ($keranjang) {
             $keranjang->qty = $keranjang->qty + $jmlBarang;
@@ -68,6 +74,7 @@ class LandingPage extends Controller
         return back()->with('gagal', 'Barang gagal ditambahkan');
     }
 
+    // Mengarahkan Ke Halaman Keranjang
     public function keranjang(){
         $id_user = Auth::id();
         $keranjang = DB::table('keranjangs')
@@ -77,6 +84,7 @@ class LandingPage extends Controller
         return view('landingpage.shopping-cart', ['keranjang' => $keranjang]);
     }
 
+    // Mengedit Isi Keranjang
     public function editKeranjang(Request $request)
     {
         $id_user = Auth::id();
@@ -108,6 +116,23 @@ class LandingPage extends Controller
         return back()->with('gagal', 'Barang gagal ditambahkan');
     }
 
+    // Menghapus item di keranjang
+    public function deleteItemKeranjang(Request $request){
+        $hapus = $request->cancel;
+        $ukuranItem = $request->size;
+        // dd($hapus, $ukuranItem);
+        $produk = Keranjang::where('id_produk', $hapus)->where('ukurandipesan', $ukuranItem)->first();
+
+        if (!$produk) {
+            return back()->with('message', 'Produk tidak ditemukan');
+        }
+
+        $produk->delete();
+    
+        return back()->with('message', 'Produk berhasil diubah');
+    }
+
+    // Mengarahkan ke Halaman Pembayaran
     public function pembayaran(){
         $id_user = Auth::id();
         $user = User::where('id', $id_user)->get();
@@ -119,6 +144,7 @@ class LandingPage extends Controller
         return view('landingpage.shopping-cart-step-2', ['user' => $user, 'rincian' => $rincian]);
     }
 
+    // Mengarahkan Ke Halaman Pencarian Produk
     public function search(Request $request)
     {
         // dd(request('search'));
@@ -136,5 +162,25 @@ class LandingPage extends Controller
             $sablon = Product::all();
             return view('landingpage.search', ['sablon' => $sablon]);
         }
+    }
+
+    // Memfilter Produk Yang Ingin Dilihat
+    public function filterBySize(Request $request)
+    {
+        $selectedSize = $request->input('size'); // Ambil nilai ukuran dari request
+
+        // Query untuk mengambil semua produk
+        $allProducts = Product::all();
+
+        // Pisahkan string ukuran menjadi array
+        $selectedSizeArray = explode(',', $selectedSize);
+
+        // Filter produk berdasarkan ukuran yang dipilih
+        $sablon = $allProducts->filter(function ($product) use ($selectedSizeArray) {
+            // Cocokkan ukuran produk dengan ukuran yang dipilih
+            return in_array($product->size, $selectedSizeArray);
+        });
+
+        return view('landingpage.search', ['sablon' => $sablon]);
     }
 }
