@@ -34,7 +34,7 @@ class DonationController extends Controller
             // dd($request->amount);
             $id_user = Auth::id();
             $donation = Donation::create([
-                'order_id'  => 'SANBOX-' . uniqid(),
+                'order_id'  => uniqid(),
                 'id_pelanggan'  => $id_user,
                 'nama'  => $request->name,
                 'email' => $request->email,

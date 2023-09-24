@@ -39,6 +39,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('mengedit/{id}', [AdminController::class, 'details'])->name('mengedit');
     Route::post('edit', [AdminController::class, 'edit']);
     Route::post('delete', [AdminController::class, 'delete']);
+    Route::get('transaksi', [AdminController::class, 'transaction']);
     // Route::get('/dashboard', [DashboardController::class, 'index']);
 });
 

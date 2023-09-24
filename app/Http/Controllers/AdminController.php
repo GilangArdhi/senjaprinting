@@ -6,6 +6,7 @@ use App\Models\FotoProduct;
 use App\Models\User;
 use App\Models\Keranjang;
 use App\Models\Product;
+use App\Models\Donation;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -248,4 +249,12 @@ class AdminController extends Controller
         return back()->with('message', 'Produk berhasil diubah');
     }
     
+    // Mengarahkan ke halaman Pesanan
+    public function transaction(){
+        $transaksi = DB::table('donations')
+        ->join('produk', 'produk.id', '=', 'donations.id_produk')->orderBy('created_at', 'asc')->get();
+
+        // dd($transaksi);
+        return view('admin.userTransaction', ['transaksi' => $transaksi]);
+    }
 }

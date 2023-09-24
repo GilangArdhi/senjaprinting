@@ -132,39 +132,39 @@
               <div class="table-sc">
                 <table class="shopping-cart-table">
                   @foreach ($rincian as $details)
-                  @csrf
-                    @php
-                      $totalQty += $details->qty; // Menambahkan qty ke total
-                      $allIds[] = $details->id; // Menambahkan ID ke array $allIds
-                    @endphp
-                  <tr class="scrollable-div">
-                    <td>
-                      <div class="product-cart">
-                        <div class="product-card__img" style="height: 75px; width: 78px;"><img src="{{asset('storage/assets/images/'. $details->gambar)}}" alt="gambar produk" style="border-radius: 50%;" ></div>
-                          <div class="product-cart__info">
-                            <div class="kartu-content" style="font-size: 14px;">{{ $details->judul }}</div>
-                            <!-- <div class="product-cart__info-nb">#{{ $details->id_produk }}</div> -->
-                          </div>
-                        </div>
-                      </td>
+                    @csrf
+                      @php
+                        $totalQty += $details->qty; // Menambahkan qty ke total
+                        $allIds[] = $details->id; // Menambahkan ID ke array $allIds
+                      @endphp
+                    <tr class="scrollable-div">
                       <td>
-                        <div style="font-size: 14px;">
-                          Rp.{{$details->qty * $details->harga}}
-                        </div>
-                      </td>
-                    </tr>
-                    <input class="number-input col-4 quantity-input" type="hidden" name="quantity-{{$details->id}}" value="{{$details->qty}}" data-price="{{$details->harga}}">
-                    <input type="hidden" id="allId" name="allId" value="{{ implode(',', $allIds) }}">
-                    <input type="hidden" id="jmlBrg" name="jmlBrg"  value="{{$totalQty}}">
-                    <input type="hidden" name="harga" id="harga" value="">
-                    <tr>
-                      <td colspan="2" >
-                        <div class="total-sum" style="display: flex; height: 100%; justify-content: center; align-items: center;">
-                          <p class="btn" style="background-color: #F1F1F1;"><span class="total-sum__title">Total cost</span><span class="total-sum__nb " name="totalHarga" id="totalHarga">Rp. </span></p>
-                        </div>
-                      </td>
-                    </tr>
+                        <div class="product-cart">
+                          <div class="product-card__img" style="height: 75px; width: 78px;"><img src="{{asset('storage/assets/images/'. $details->gambar)}}" alt="gambar produk" style="border-radius: 50%;" ></div>
+                            <div class="product-cart__info">
+                              <div class="kartu-content" style="font-size: 14px;">{{ $details->judul }}</div>
+                              <!-- <div class="product-cart__info-nb">#{{ $details->id_produk }}</div> -->
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div style="font-size: 14px;">
+                            Rp.{{$details->qty * $details->harga}}
+                          </div>
+                        </td>
+                      </tr>
+                      <input class="number-input col-4 quantity-input" type="hidden" name="quantity-{{$details->id}}" value="{{$details->qty}}" data-price="{{$details->harga}}">
+                      <input type="hidden" id="allId" name="allId" value="{{ implode(',', $allIds) }}">
+                      <input type="hidden" id="jmlBrg" name="jmlBrg"  value="{{$totalQty}}">
+                      <input type="hidden" name="harga" id="harga" value="">
                   @endforeach
+                      <tr>
+                        <td colspan="2" >
+                          <div class="total-sum" style="display: flex; height: 100%; justify-content: center; align-items: center;">
+                            <p class="btn" style="background-color: #F1F1F1;"><span class="total-sum__title">Total cost</span><span class="total-sum__nb " name="totalHarga" id="totalHarga"> </span></p>
+                          </div>
+                        </td>
+                      </tr>
                 </table>
               </div>
             </div>
