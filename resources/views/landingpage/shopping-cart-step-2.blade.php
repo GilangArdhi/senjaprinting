@@ -98,11 +98,11 @@
             <div class="address-form__row">
               <div class="input-container">
                 <label class="label" for="city">Kota</label>
-                <input class="txt-input default-input" type="text" name="city" id="city" placeholder="City">
+                <input class="txt-input default-input" type="text" name="city" id="city" placeholder="City" required>
               </div>
               <div class="input-container">
                 <label class="label" for="first-name">Kode Pos</label>
-                <input class="txt-input default-input" type="text" name="kdPos" id="kdPos" placeholder="Kode Pos">
+                <input class="txt-input default-input" type="text" name="kdPos" id="kdPos" placeholder="Kode Pos" required>
               </div>
             </div>
             <div class="address-form__row">
@@ -124,7 +124,7 @@
           </div>
           <div class="grid-layout">
             @php
-              $totalQty = 0;
+              $totalQty = [];
             @endphp
             <div class="kartu">
               <!-- <h2 class="kartu-title">Judul Kartu</h2> -->
@@ -134,8 +134,9 @@
                   @foreach ($rincian as $details)
                     @csrf
                       @php
-                        $totalQty += $details->qty; // Menambahkan qty ke total
+                        $totalQty[] = $details->qty; // Menambahkan qty ke total
                         $allIds[] = $details->id; // Menambahkan ID ke array $allIds
+                        $harga[] = $details->qty * $details->harga; // Menambahkan ID ke array $allIds
                       @endphp
                     <tr class="scrollable-div">
                       <td>
@@ -154,10 +155,10 @@
                         </td>
                       </tr>
                       <input class="number-input col-4 quantity-input" type="hidden" name="quantity-{{$details->id}}" value="{{$details->qty}}" data-price="{{$details->harga}}">
+                      @endforeach
+                      <input type="hidden" name="harga" id="harga" value="{{implode(',', $harga) }}">
+                      <input type="hidden" id="jmlBrg" name="jmlBrg"  value="{{implode(',', $totalQty) }}">
                       <input type="hidden" id="allId" name="allId" value="{{ implode(',', $allIds) }}">
-                      <input type="hidden" id="jmlBrg" name="jmlBrg"  value="{{$totalQty}}">
-                      <input type="hidden" name="harga" id="harga" value="">
-                  @endforeach
                       <tr>
                         <td colspan="2" >
                           <div class="total-sum" style="display: flex; height: 100%; justify-content: center; align-items: center;">
@@ -272,10 +273,10 @@
         // )
       })
     </script>
-    <script>
+    <!-- <script>
       var allIdsInput = document.getElementById('all-ids');
       var allIds = allIdsInput.value.split(','); // Memisahkan ID yang disimpan
-    </script>
+    </script> -->
     <script>
       // Ambil semua elemen input dengan class "quantity-input"
       const quantityInputs = document.querySelectorAll('.quantity-input');
@@ -296,8 +297,8 @@
         });
         
         // Isi nilai sumPrice ke elemen input tersembunyi
-        const sumPrice = document.getElementById('harga');
-        sumPrice.value = total.toFixed(2);
+        // const sumPrice = document.getElementById('harga');
+        // sumPrice.value = total.toFixed(2);
 
         // Tampilkan total pada elemen dengan ID "total-display"
         const totalDisplay = document.getElementById('totalHarga');

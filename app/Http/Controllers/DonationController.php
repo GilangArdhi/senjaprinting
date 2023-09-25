@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class DonationController extends Controller
 {
@@ -29,23 +30,35 @@ class DonationController extends Controller
     }
 
     public function store(Request $request) {
+        
         DB::transaction(function () use ($request) {
             // dd($request->idProduk);
             // dd($request->amount);
+            $idProdukArray = explode(",", $request->idProduk);
+            $qtyArray = explode(",", $request->qty);
+            $hargaArray = explode(",", $request->amount);
+            $qtyvalue = 0;
+            // dd($hargaArray);
+
             $id_user = Auth::id();
-            $donation = Donation::create([
-                'order_id'  => uniqid(),
-                'id_pelanggan'  => $id_user,
-                'nama'  => $request->name,
-                'email' => $request->email,
-                'alamat'  => $request->alamat,
-                'kota'    => $request->kota,
-                'noHp'  => $request->noHp,
-                'id_produk'  => $request->idProduk,
-                'kdPos'  => $request->kdPos,
-                'amount' => $request->amount,
-                'qty' => $request->qty,
-            ]);
+            foreach ($idProdukArray as $key => $idProdukValue) {
+                $qty = isset($qtyArray[$key]) ? $qtyArray[$key] : $qtyvalue;
+                $harga = isset($hargaArray[$key]) ? $hargaArray[$key] : $qtyvalue;
+
+                $donation = Donation::create([
+                    'order_id' => uniqid(),
+                    'id_pelanggan' => $id_user,
+                    'nama' => $request->name,
+                    'email' => $request->email,
+                    'alamat' => $request->alamat,
+                    'kota' => $request->kota,
+                    'noHp' => $request->noHp,
+                    'id_produk' => $idProdukValue,
+                    'kdPos' => $request->kdPos,
+                    'amount' => $harga,
+                    'qty' => $qty,
+                ]);
+            }
 
             // dd($donation);
 

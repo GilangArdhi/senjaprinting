@@ -27,24 +27,24 @@
           </svg>
         </div>
       <form action="edit-keranjang" method="GET">
+        @csrf
         <div class="table-sc">
           <table class="shopping-cart-table">
             <thead>
               <tr>
-                <th class="cel-title">Product</th>
+                <th class="cel-title">Produk</th>
                 <th class="cel-title"></th>
-                <th class="cel-title">Size</th>
-                <th class="cel-title">Amount</th>
-                <th class="cel-title">Price</th>
+                <th class="cel-title">Ukuran</th>
+                <th class="cel-title">Jumlah</th>
+                <th class="cel-title">Harga</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
 
-              @foreach ($keranjang as $items)
-              @csrf  
-              <input type="hidden" name="id" value="{{$items->id}}">
+              @foreach ($keranjang as $key => $items)
               <tr>
+                <input type="hidden" name="id" value="{{$items->id}}">
                 <td>
                   <div class="product-cart">
                     <div class="product-card__img" style="height: 80px; width: 77px;"><img src="{{asset('storage/assets/images/'. $items->gambar)}}" alt="gambar produk" style="border-radius: 50%;" ></div>
@@ -55,21 +55,34 @@
                   </div>
                 </td>
                 <td> </td>
-                <td> {{$items->ukurandipesan}}</td>
+                
+                <td> {{$items->ukurandipesan}} </td>
+
                 <td> 
                   <input class="number-input col-4 quantity-input" type="number" name="quantity-{{$items->id}}" min="1" value="{{$items->qty}}" data-price="{{$items->harga}}" style="max-width: 120px">
                 </td>
                 <td>Rp. {{$items->harga}}</td>
                 <td>
-                  <form id="deleteForm{{ $items->id }}" action="{{ route('hapus-keranjang') }}" method="POST">
+                  <form id="deleteForm{{ $key + 1 }}" action="{{ route('hapus-keranjang') }}" method="POST">
                     @csrf
-                    <div class="cancel-btn" id="cancelBtn" onclick="event.preventDefault(); document.getElementById('deleteForm{{ $items->id }}').submit();">
+                    <!-- <input type="hidden" name="id" value="{{$items->id}}">
+                    <button type="submit" class="cancel-btn" id="cancelBtn">
                       <input type="hidden" name="cancel" id="cancel" value="{{$items->id}}">
                       <input type="hidden" name="size" id="size" value="{{$items->ukurandipesan}}">
                       <svg xmlns="http://www.w3.org/2000/svg" width="11.502" height="11.5" viewBox="0 0 11.502 11.5">
                         <path d="M19.127,8.117a.833.833,0,0,0-1.18,0l-4.325,4.325L9.3,8.117A.834.834,0,0,0,8.117,9.3l4.325,4.325L8.117,17.947A.834.834,0,0,0,9.3,19.125L13.622,14.8l4.325,4.325a.834.834,0,1,0,1.182-1.177L14.8,13.622,19.127,9.3A.837.837,0,0,0,19.127,8.117Z" transform="translate(-7.873 -7.872)"></path>
                       </svg>
-                    </div>
+                    </button> -->
+                  </form>
+                  <form id="deleteForm{{ $key + 1 }}" action="{{ route('hapus-keranjang') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="cancel-btn" id="cancelBtn">
+                      <input type="hidden" name="cancel" id="cancel" value="{{$items->id}}">
+                      <input type="hidden" name="size" id="size" value="{{$items->ukurandipesan}}">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="11.502" height="11.5" viewBox="0 0 11.502 11.5">
+                        <path d="M19.127,8.117a.833.833,0,0,0-1.18,0l-4.325,4.325L9.3,8.117A.834.834,0,0,0,8.117,9.3l4.325,4.325L8.117,17.947A.834.834,0,0,0,9.3,19.125L13.622,14.8l4.325,4.325a.834.834,0,1,0,1.182-1.177L14.8,13.622,19.127,9.3A.837.837,0,0,0,19.127,8.117Z" transform="translate(-7.873 -7.872)"></path>
+                      </svg>
+                    </button>
                   </form>
                 </td>
               </tr>
@@ -102,14 +115,14 @@
           </table>
         </div>
         <div class="page-row-bottom">
-          <div class="input-w-icon">
+          <!-- <div class="input-w-icon">
             <input class="txt-input default-input" type="text" name="first-name" placeholder="Promo Code">
             <div class="svg" style="transform: translateY(-38px)">
               <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="13.901" viewBox="0 0 14 13.901">
                 <path d="M89.862,77.359a.387.387,0,0,0-.432-.082L76.209,83.029a.389.389,0,0,0,.051.731l5.635,1.563,1.466,5.534a.386.386,0,0,0,.346.288h.031a.388.388,0,0,0,.354-.229L89.94,77.791A.386.386,0,0,0,89.862,77.359Z" transform="translate(-75.975 -77.244)" fill="#b5b5b5"></path>
               </svg>
             </div>
-          </div>
+          </div> -->
           <div class="total-sum"><span class="total-sum__title">Total cost</span><span class="total-sum__nb " id="total-display">Rp. </span></div>
           <div class="btn-actions">
             <button class="btn btn--default"><a href="/">Continue shopping</a></button>
