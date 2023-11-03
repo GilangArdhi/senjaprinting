@@ -33,6 +33,8 @@ Route::get('/products/filter', [LandingPage::class, 'filterBySize'])->name('prod
 Route::post('/masuk', [AuthController::class, 'masuk'])->name('masuk');
 Route::post('daftar', [AuthController::class, 'postdaftar'])->name('daftar');
 
+Route::get('notif', [DonationController::class, 'notification']);
+
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'admin']);
     Route::post('insert', [AdminController::class, 'insert']);

@@ -124,7 +124,7 @@
           </div>
           <div class="grid-layout">
             @php
-              $totalQty = [];
+              $totalQty = 0;
             @endphp
             <div class="kartu">
               <!-- <h2 class="kartu-title">Judul Kartu</h2> -->
@@ -134,12 +134,13 @@
                   @foreach ($rincian as $details)
                     @csrf
                       @php
-                        $totalQty[] = $details->qty; // Menambahkan qty ke total
-                        $allIds[] = $details->id; // Menambahkan ID ke array $allIds
-                        $harga[] = $details->qty * $details->harga; // Menambahkan ID ke array $allIds
+                      $totalQty += $details->qty; // Menambahkan qty ke total
+                      $allIds[] = $details->id; // Menambahkan ID ke array $allIds
                       @endphp
-                    <tr class="scrollable-div">
-                      <td>
+                      <!-- $totalQty[] = $details->qty; // Menambahkan qty ke total -->
+                      <!-- $harga[] = $details->qty * $details->harga; // Menambahkan ID ke array $allIds -->
+                        <tr class="scrollable-div">
+                          <td>
                         <div class="product-cart">
                           <div class="product-card__img" style="height: 75px; width: 78px;"><img src="{{asset('storage/assets/images/'. $details->gambar)}}" alt="gambar produk" style="border-radius: 50%;" ></div>
                             <div class="product-cart__info">
@@ -156,8 +157,8 @@
                       </tr>
                       <input class="number-input col-4 quantity-input" type="hidden" name="quantity-{{$details->id}}" value="{{$details->qty}}" data-price="{{$details->harga}}">
                       @endforeach
-                      <input type="hidden" name="harga" id="harga" value="{{implode(',', $harga) }}">
-                      <input type="hidden" id="jmlBrg" name="jmlBrg"  value="{{implode(',', $totalQty) }}">
+                      <input type="hidden" name="harga" id="harga" value="">
+                      <input type="hidden" id="jmlBrg" name="jmlBrg"   value="{{$totalQty}}">
                       <input type="hidden" id="allId" name="allId" value="{{ implode(',', $allIds) }}">
                       <tr>
                         <td colspan="2" >
@@ -198,10 +199,16 @@
       @include('footer')
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- Midtrans Production -->
     <script type="text/javascript" 
-            src="https://app.sandbox.midtrans.com/snap/snap.js" 
+            src="https://app.midtrans.com/snap/snap.js" 
             data-client-key="{{ config('services.midtrans.clientKey') }}">
     </script>
+    <!-- Midtrans Sandbox -->
+    <!-- <script type="text/javascript" 
+            src="https://app.sandbox.midtrans.com/snap/snap.js" 
+            data-client-key="{{ config('services.midtrans.clientKey') }}">
+    </script> -->
     <script>
       $("#donation_form").submit(function (event) {
         event.preventDefault();
@@ -242,35 +249,6 @@
             return false;
           },
         })
-        // $.post("{ route('donation.store') }}", {
-        //   _method: 'POST',
-        //   _token: { csrf_token() }},
-        //   name: $('input#name').val(),
-        //   email: $('input#email').val(),
-        //   type: $('select#type').val(),
-        //   amount: $('input#amount').val(),
-        //   note: $('textarea#note').val(),
-        // },
-        // function (data, status) {
-        //   console.log(data);
-        //   snap.pay(data.snap_token, {
-        //     onSuccess: function (result) {
-        //       console.log(result);
-        //       // location.reload();
-        //     },
-        //     onPending: function (result) {
-        //       console.log(result);
-        //       // location.reload();
-        //     },
-        //     onError: function (result) {
-        //       console.log(result);
-        //       // location.reload();
-        //     }
-        //   });
-
-        //   return false;
-        // }
-        // )
       })
     </script>
     <!-- <script>
@@ -297,8 +275,8 @@
         });
         
         // Isi nilai sumPrice ke elemen input tersembunyi
-        // const sumPrice = document.getElementById('harga');
-        // sumPrice.value = total.toFixed(2);
+        const sumPrice = document.getElementById('harga');
+        sumPrice.value = total.toFixed(2);
 
         // Tampilkan total pada elemen dengan ID "total-display"
         const totalDisplay = document.getElementById('totalHarga');

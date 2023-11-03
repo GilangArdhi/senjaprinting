@@ -48,6 +48,25 @@
     padding: 10px;
     box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.2);
   }
+  .floating-button {
+      position: fixed;
+      bottom: 20px; /* Atur jarak dari bawah */
+      right: 20px; /* Atur jarak dari kanan */
+      z-index: 1000; /* Atur urutan lapisan di atas elemen lain */
+    }
 
+    .floating-button a {
+      display: inline-block; /* Membuat tautan menjadi elemen blok dengan lebar dan tinggi sesuai kontennya */
+      background: url('{{ asset("assets/images/5ae21cc526c97415d3213554.png") }}');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: #25D366;
+      text-decoration: none; /* Menghapus gaya bawaan tautan */
+      padding: 30px 30px;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
+    }
 </style>
 <title>Senja Printing</title>

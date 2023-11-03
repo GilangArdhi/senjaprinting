@@ -2,40 +2,19 @@
 <html lang="en">
   <head>
     @include('script_head')
-    <style>
-      .floating-button {
-        position: fixed;
-        bottom: 20px; /* Atur jarak dari bawah */
-        right: 20px; /* Atur jarak dari kanan */
-        z-index: 1000; /* Atur urutan lapisan di atas elemen lain */
-      }
-
-      .floating-button a {
-        display: inline-block; /* Membuat tautan menjadi elemen blok dengan lebar dan tinggi sesuai kontennya */
-        background: url('{{ asset("assets/images/5ae21cc526c97415d3213554.png") }}');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        color: #25D366;
-        text-decoration: none; /* Menghapus gaya bawaan tautan */
-        padding: 30px 30px;
-        border-radius: 50px;
-        cursor: pointer;
-        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
-      }
-    </style>
+    
   </head>
   <body>
     @include('homeheader')
     <header class="hero-section">
       <div class="container">
         <div class="hero-section__content">
-          <p class="hero-section__txt">Sale of the summer collection</p>
-          <div class="hero-section__call-to-action"><a class="btn-round btn-round--primary">
+          <p class="hero-section__txt"></p>
+          <!--<div class="hero-section__call-to-action"><a class="btn-round btn-round--primary">
               <svg class="btn-round__icon--center" xmlns="http://www.w3.org/2000/svg" width="15" viewBox="0 0 15.336 13.329">
                 <path d="M6.663,13.329,1.107,7.768,0,6.661,1.107,5.553,6.663,0,7.77,1.1,3,5.878H15.336V7.443H3L7.77,12.219Z" transform="translate(15.336 13.329) rotate(180)" fill="#fff"></path>
               </svg></a><span class="btn-round__txt"> <a href="#">Shop now</a></span></div>
-        </div>
+        </div>-->
       </div>
       <div class="hero-section__services">
         <div class="services-flex">
@@ -106,7 +85,7 @@
         </div> -->
         <div class="row spacing">
           <div class="sub-row">
-            <h1 class="section-title--default">Selected just for you</h1><a class="btn btn--default" href="{{ route('product.search') }}">Show more</a>
+            <h1 class="section-title--default">Rekomendasi khusus untuk Anda</h1><a class="btn btn--default" href="{{ route('product.search') }}">Lihat Lebih</a>
           </div>
           <div class="product-cards-slider">
             <svg class="product-cards-slider_left-arrow" id="leftArrow" xmlns="http://www.w3.org/2000/svg" width="23.336" height="20.281" viewBox="0 0 23.336 20.281">
@@ -406,7 +385,7 @@
           </div>
         </div>
         <div class="spacing">
-          <h1 class="section-title--default title--center">Products in today</h1>
+          <h1 class="section-title--default title--center">Produk Terbaru Kami</h1>
           <div class="products-grid-container">
           @foreach ($terbaru as $produk)
               <form id="detailForm{{ $produk->id }}" action="{{ route('detail', ['id' => request('id')]) }}" method="GET">
@@ -490,7 +469,7 @@
         </div>
       </main>
     </div>
-    <div class="container spacing">
+    <!-- <div class="container spacing">
       <div class="newsletter">
         <div class="newsletter__content">
           <p class="newsletter__title">Subscribe to our newsletter and receive exclusive offers every week</p>
@@ -500,13 +479,13 @@
           </div>
         </div>
       </div>
-    </div>
+    </div-->
     <div class="floating-button">
       <a href="https://wa.me/6281228615885"></a>
     </div>
-    <div class="container">
+    <!--div class="container"> -->
       @include('footer')
-    </div>
+    <!-- </div> -->
     <script defer src="scripts/product-cards-slider.js"></script>
   </body>
 </html>

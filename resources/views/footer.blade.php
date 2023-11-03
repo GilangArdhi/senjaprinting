@@ -1,4 +1,16 @@
-<footer class="spacing">
+<div class="container spacing">
+      <div class="newsletter">
+        <div class="newsletter__content">
+          <p class="newsletter__title">Hubungi kami sekarang untuk pesan sablon yang Anda inginkan.</p>
+          <div class="newsletter__form">
+            <!-- <input class="txt-input newsletter__input" type="text" name="Newsletter" placeholder="Enter your email"> -->
+            <a class="btn btn--primary" href="https://wa.me/6281228615885" style="background: url('{{ asset('assets/images/5ae21cc526c97415d3213554.png') }}'); padding: 30px 30px; border-radius: 50px; background-size: cover;"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+    <footer class="spacing">
         <div class="footer">
           <!-- <h3 class="footer__title">HELP</h3>
           <ul>
@@ -8,8 +20,8 @@
             <li class="footer__link"><a href="#">Payment Options</a></li>
             <li class="footer__link"><a href="#">Contact Us</a></li>
           </ul> -->
-          <div class="footer__group-links element" >
-              <div id="map" style="justify-self: self-start; height: 200px;"></div>
+          <!-- <div class="footer__group-links element" > -->
+              <!-- <div id="map" style="justify-self: self-start; height: 200px;"></div> -->
             <!-- <h3 class="footer__title">INFORMATION</h3>
             <ul>
               <li class="footer__link"><a href="#">Gift Cards</a></li>
@@ -18,8 +30,8 @@
               <li class="footer__link"><a href="#">Bacome a member</a></li>
               <li class="footer__link"><a href="#">Site feedback</a></li>
             </ul> -->
-          </div>
-          <div class="footer__group-links">
+          <!-- </div> -->
+          <!-- <div class="footer__group-links"> -->
             <!-- <h3 class="footer__title">HELPFUL LINKS</h3>
             <ul>
               <li class="footer__link"><a href="#">Comapany Overview</a></li>
@@ -28,8 +40,8 @@
               <li class="footer__link"><a href="#">Idea Submission</a></li>
               <li class="footer__link"><a href="#">Student Discount</a></li>
             </ul> -->
-          </div>
-          <div class="footer__group-links jarak">
+          <!-- </div> -->
+          <!-- <div class="footer__group-links jarak"> -->
             <!-- <h3 class="footer__title">HELPFUL LINKS</h3>
             <ul>
               <li class="footer__link"><a href="#">Comapany Overview</a></li>
@@ -71,7 +83,7 @@
                 </svg></a></div>
           </div> -->
         </div>
-        <p class="footer__credit">SENJA PRINTING © 2020.</p>
+        <p class="footer__credit">SENJA PRINTING © 2021</p>
       </footer>
       <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
     ({key: "AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg", v: "weekly"});</script>
@@ -109,3 +121,4 @@
           }
         });
       </script>
+    </div>

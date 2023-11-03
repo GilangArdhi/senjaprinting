@@ -2,9 +2,28 @@
 <html lang="en">
   <head>
     @include('script_head')
+    <style>
+      .float-notification {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #4CAF50; /* Ganti dengan warna latar belakang yang Anda inginkan */
+        color: white;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+        z-index: 1000; /* Pastikan notifikasi float tampil di atas elemen lain */
+        display: none; /* Sembunyikan notifikasi float secara default */
+      }
+    </style>
   </head>
   <body>
     @include('header')
+    <div id="float-notification" class="float-notification">
+      <span id="notification-text"></span>
+    </div>
+
     <div class="top-spacing">
       <div class="container">
         <div class="breadcrumbs__flex-row breadcrumbs__row">
@@ -359,7 +378,7 @@
         </div>
       </div>
     </div>
-    <div class="container spacing">
+    <!-- <div class="container spacing">
       <div class="newsletter">
         <div class="newsletter__content">
           <p class="newsletter__title">Subscribe to our newsletter and receive exclusive offers every week</p>
@@ -370,11 +389,32 @@
         </div>
       </div>
     </div>
-    <div class="container">
+    <div class="container"> -->
       @include('footer')
-    </div>
+    <!-- </div> -->
     <script defer src={{ asset ('assets/js/product-cards-slider.js') }}></script>
     <script src={{ asset('assets/js/product-page.js')}}></script>
-    
+    <script>
+      // Fungsi untuk menampilkan notifikasi float
+      function showFloatNotification(message) {
+          var notification = document.getElementById('float-notification');
+          var notificationText = document.getElementById('notification-text');
+
+          notificationText.innerHTML = message;
+          notification.style.display = 'block';
+
+          // Sembunyikan notifikasi setelah beberapa detik (misalnya 5 detik)
+          setTimeout(function() {
+              notification.style.display = 'none';
+          }, 4000); // Menghilangkan notifikasi setelah 5 detik
+      }
+
+      // Memeriksa apakah ada pesan sukses dalam URL
+      var successMessage = "{{ session('sukses') }}"; // Sesuaikan dengan cara Anda mendapatkan pesan sukses dari Laravel
+
+      if (successMessage) {
+          showFloatNotification(successMessage);
+      }
+    </script>
   </body>
 </html>
