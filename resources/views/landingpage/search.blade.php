@@ -9,7 +9,7 @@
       <div class="container">
         <div class="breadcrumbs__flex-row breadcrumbs__row">
           <ol class="breadcrumbs">
-            <li class="breadcrumb"><a href="#">
+            <li class="breadcrumb"><a href="/">
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
                   <path d="M7.028,12.906l.327-.276v7.745A.625.625,0,0,0,7.98,21H19.02a.625.625,0,0,0,.625-.625V12.63l.327.276a.625.625,0,0,0,.806-.955l-3-2.533V7.039a.625.625,0,1,0-1.25,0V8.363L13.9,6.147a.625.625,0,0,0-.806,0l-6.875,5.8a.625.625,0,1,0,.806.955ZM12.1,19.75V15.238H14.9V19.75ZM13.5,7.443l4.895,4.132V19.75H16.147V14.613a.625.625,0,0,0-.625-.625H11.478a.625.625,0,0,0-.625.625V19.75H8.605V11.575Z" transform="translate(-6 -6)" fill="#b2b2b2"></path>
                 </svg></a></li>
@@ -19,7 +19,7 @@
         <div class="search-flex-layout">
           <div class="filters-container">
             <div class="filter-container">
-              <div class="filter-title-row product-typ-btn-js">
+              <!--<div class="filter-title-row product-typ-btn-js">
                 <div class="filter-title">PRODUCT TYPE</div>
                 <div class="filter-title-arrow">
                   <svg xmlns="http://www.w3.org/2000/svg" width="11.34" height="6.475" viewBox="0 0 11.34 6.475">
@@ -28,7 +28,7 @@
                     </g>
                   </svg>
                 </div>
-              </div>
+              </div>-->
               <!-- <div class="filter product-tab-js" style="display: block;">
                 <div class="checkbox-wrapper">
                   <label class="checkbox-label" for="tshirts">T-Shirts&nbsp;<span class="muted-txt">(411)</span>
@@ -67,19 +67,19 @@
             <div class="filter-container">
               <div class="filter-title-row product-typ-btn-js">
                 <div class="filter-title">Size</div>
-                <div class="filter-title-arrow">
+                <!--<div class="filter-title-arrow">
                   <svg xmlns="http://www.w3.org/2000/svg" width="11.34" height="6.475" viewBox="0 0 11.34 6.475">
                     <g transform="translate(-26.464 45.94) rotate(-90)">
                       <path d="M45.657,32.815l-4.739,4.739a.852.852,0,0,1-1.2-1.2l4.216-4.216-4.216-4.216a.852.852,0,0,1,1.2-1.2l4.739,4.739A.963.963,0,0,1,45.657,32.815Z" transform="translate(0 0)"></path>
                     </g>
                   </svg>
-                </div>
+                </div>-->
               </div>
               <div class="filter product-tab-js">
-                <div class="radio-btn-container">
+                <!--<div class="radio-btn-container">
                   <input class="input-r" id="xs" type="radio" name="size" value="XS">
                   <label class="filter-radio__label" for="xs"> <span>xs</span></label>
-                </div>
+                </div>-->
                 <div class="radio-btn-container">
                   <input class="input-r" id="s" type="radio" name="size" value="S">
                   <label class="filter-radio__label" for="s"> <span>s</span></label>
@@ -166,7 +166,7 @@
         </div>
       </div>
     </div>
-    <div class="container spacing">
+    <!-- <div class="container spacing">
       <div class="newsletter">
         <div class="newsletter__content">
           <p class="newsletter__title">Subscribe to our newsletter and receive exclusive offers every week</p>
@@ -176,10 +176,13 @@
           </div>
         </div>
       </div>
+    </div-->
+    <div class="floating-button">
+      <a href="https://wa.me/6281228615885"></a>
     </div>
-    <div class="container">
+    <!--div class="container"> -->
       @include('footer')
-    </div>
+    <!-- </div> -->
     <script src="scripts/filter.js"></script>
     <script>
       // Ambil semua radio button ukuran

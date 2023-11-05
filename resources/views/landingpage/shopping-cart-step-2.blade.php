@@ -134,13 +134,12 @@
                   @foreach ($rincian as $details)
                     @csrf
                       @php
-                      $totalQty += $details->qty; // Menambahkan qty ke total
-                      $allIds[] = $details->id; // Menambahkan ID ke array $allIds
+                        $totalQty += $details->qty; // Menambahkan qty ke total
+                        $allIds[] = $details->id; // Menambahkan ID ke array $allIds
                       @endphp
-                      <!-- $totalQty[] = $details->qty; // Menambahkan qty ke total -->
-                      <!-- $harga[] = $details->qty * $details->harga; // Menambahkan ID ke array $allIds -->
-                        <tr class="scrollable-div">
-                          <td>
+                        <!-- $harga[] = $details->qty * $details->harga; // Menambahkan ID ke array $allIds -->
+                    <tr class="scrollable-div">
+                      <td>
                         <div class="product-cart">
                           <div class="product-card__img" style="height: 75px; width: 78px;"><img src="{{asset('storage/assets/images/'. $details->gambar)}}" alt="gambar produk" style="border-radius: 50%;" ></div>
                             <div class="product-cart__info">
@@ -185,6 +184,7 @@
     </form>
     </div>
     <div class="container spacing">
+    <!-- <div class="container spacing">
       <div class="newsletter">
         <div class="newsletter__content">
           <p class="newsletter__title">Subscribe to our newsletter and receive exclusive offers every week</p>
@@ -194,10 +194,13 @@
           </div>
         </div>
       </div>
+    </div-->
+    <div class="floating-button">
+      <a href="https://wa.me/6281228615885"></a>
     </div>
-    <div class="container">
+    <!--div class="container"> -->
       @include('footer')
-    </div>
+    <!-- </div> -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <!-- Midtrans Production -->
     <script type="text/javascript" 
@@ -205,10 +208,10 @@
             data-client-key="{{ config('services.midtrans.clientKey') }}">
     </script>
     <!-- Midtrans Sandbox -->
-    <!-- <script type="text/javascript" 
+    <!--<script type="text/javascript" 
             src="https://app.sandbox.midtrans.com/snap/snap.js" 
             data-client-key="{{ config('services.midtrans.clientKey') }}">
-    </script> -->
+    </script>-->
     <script>
       $("#donation_form").submit(function (event) {
         event.preventDefault();

@@ -28,15 +28,15 @@
       <div class="container">
         <div class="breadcrumbs__flex-row breadcrumbs__row">
           <ol class="breadcrumbs">
-            <li class="breadcrumb"><a href="#">
+            <li class="breadcrumb"><a href="/">
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
                   <path d="M7.028,12.906l.327-.276v7.745A.625.625,0,0,0,7.98,21H19.02a.625.625,0,0,0,.625-.625V12.63l.327.276a.625.625,0,0,0,.806-.955l-3-2.533V7.039a.625.625,0,1,0-1.25,0V8.363L13.9,6.147a.625.625,0,0,0-.806,0l-6.875,5.8a.625.625,0,1,0,.806.955ZM12.1,19.75V15.238H14.9V19.75ZM13.5,7.443l4.895,4.132V19.75H16.147V14.613a.625.625,0,0,0-.625-.625H11.478a.625.625,0,0,0-.625.625V19.75H8.605V11.575Z" transform="translate(-6 -6)" fill="#b2b2b2"></path>
                 </svg></a></li>
-            <li class="breadcrumb"><a href="#">Men`s Tops</a></li>
+            <li class="breadcrumb"><a href="#">Deskripsi Produk</a></li><!--
             <li class="breadcrumb"><a href="#">T-Shirt</a></li>
-            <li class="breadcrumb"> <a href="#">T-Shirt Summer Vibes</a></li>
+            <li class="breadcrumb"> <a href="#">T-Shirt Summer Vibes</a></li>-->
           </ol>
-          <ul class="service__products">
+          <!--<ul class="service__products">
             <li class="service__products-item">
               <div class="service__products-item__icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="11.303" viewBox="0 0 18 11.303">
@@ -61,7 +61,7 @@
                 <p class="service__products-item__txt">$35,00 available  </p>
               </div>
             </li>
-          </ul>
+          </ul>-->
         </div>
         <div class="product-display">
           @foreach ($tampil as $details)
@@ -86,13 +86,13 @@
           </div>
           <div class="product-display__details">
             <div class="product-display__first-row"><span class="tag">Sale</span>
-              <div class="product__id">
-                 Product ID: <br>{{$details->id}}</div>
+              <!--<div class="product__id">
+                 Product ID: <br>{{$details->id}}</div>-->
             </div>
             <h1 class="section-title--default">{{$details->judul}}</h1>
             <div class="product-display__prices">
               <div><span class="product-display__price product-card__price--new">Rp. {{$details->harga}}</span><!--span class="product-display__price product-card__price--old">$119.99</span--></div>
-              <p class="product-display__brand-name">HOUSE MY BRAND</p>
+              <!--<p class="product-display__brand-name">HOUSE MY BRAND</p>-->
             </div>
             <!-- <div class="product-display__row">
               <p>{ !{$details->deskripsi} }</p>
@@ -143,7 +143,7 @@
         <div class="product-page__tab">
           <div class="product-page__tab-actions">
             <button class="btn btn__tab--active" id="product-description-btn">Description</button>
-            <button class="btn btn__tab--inactive" id="product-reviews-btn">Reviews <span>(2)</span></button>
+<!--            <button class="btn btn__tab--inactive" id="product-reviews-btn">Reviews <span>(2)</span></button>-->
           </div>
           <div class="product-page__tab-content flex--center" id="product-description">
             @foreach ($tampil as $details)
@@ -388,8 +388,11 @@
           </div>
         </div>
       </div>
+    </div-->
+    <div class="floating-button">
+      <a href="https://wa.me/6281228615885"></a>
     </div>
-    <div class="container"> -->
+    <!--div class="container"> -->
       @include('footer')
     <!-- </div> -->
     <script defer src={{ asset ('assets/js/product-cards-slider.js') }}></script>

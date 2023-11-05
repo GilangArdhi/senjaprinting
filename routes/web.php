@@ -25,6 +25,7 @@ Route::get('resende', [AuthController::class, 'verifyr']);
 Auth::routes([ 'verify' => true ]);
 Route::get('detail', [LandingPage::class, 'detail'])->name('detail');
 Route::get('/product/search', [LandingPage::class, 'search'])->name('product.search');
+Route::get('searchCatalog', [LandingPage::class, 'searchByCategory']);
 Route::get('/products/filter', [LandingPage::class, 'filterBySize'])->name('products.filter');
 // Rute kustom untuk tampilan verifikasi
 // Route::get('/verify-email', [VerificationController::class,'show'])->name('verification.notice');

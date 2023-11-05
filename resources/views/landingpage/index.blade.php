@@ -2,7 +2,114 @@
 <html lang="en">
   <head>
     @include('script_head')
-    
+    <style>
+      .floating-button {
+        position: fixed;
+        bottom: 20px; /* Atur jarak dari bawah */
+        right: 20px; /* Atur jarak dari kanan */
+        z-index: 1000; /* Atur urutan lapisan di atas elemen lain */
+      }
+
+      .floating-button a {
+        display: inline-block; /* Membuat tautan menjadi elemen blok dengan lebar dan tinggi sesuai kontennya */
+        background: url('{{ asset("assets/images/5ae21cc526c97415d3213554.png") }}');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        color: #25D366;
+        text-decoration: none; /* Menghapus gaya bawaan tautan */
+        padding: 30px 30px;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
+      }
+      .slideshow-container {
+        position: relative;
+        max-width: 100%;
+        overflow: hidden;
+      }
+
+      .slides {
+        display: grid;
+        grid-template-columns: 100% 100% 100%;
+        grid-gap: 0;
+        transition: transform 1s;
+      }
+
+      .slide {
+      width: 100%;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      .dots-container {
+        text-align: center;
+      }
+
+      .dot {
+        height: 15px;
+        width: 15px;
+        margin: 0 5px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.3s;
+      }
+
+      .active {
+        background-color: #717171;
+      }
+
+      .image-list {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+      }
+
+      .catalog {
+        width: 30%;
+        height: auto;
+      }
+
+      .card-list {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+        justify-content: center; /* Mengatur gambar ke tengah secara horizontal */
+        align-items: center; 
+        display: flex; /* Mengatur tata letak Flexbox */
+        /* justify-content: space-between; Membuat kartu berada di satu baris dengan jarak yang merata */
+      }
+
+      .card {
+        width: 300px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 20px;
+      }
+
+      .card img {
+        width: 100%;
+        height: auto;
+      }
+
+      .card-content {
+        padding: 16px;
+      }
+
+      h3 {
+        font-size: 20px;
+        margin: 0;
+      }
+
+      p {
+        margin: 10px 0;
+      }
+    </style>
   </head>
   <body>
     @include('homeheader')
@@ -29,8 +136,8 @@
                 </g>
               </svg>
             </div>
-            <div class="service-item__content"><span class="service-item__title">Free Shipping</span>
-              <p class="service-item__txt">On purchases over $199</p>
+            <div class="service-item__content"><span class="service-item__title">Pengiriman Cepat</span>
+              <p class="service-item__txt">Siap Kirim ke Seluruh Indonesia</p>
             </div>
           </div>
           <div class="service-item">
@@ -44,8 +151,8 @@
                 </g>
               </svg>
             </div>
-            <div class="service-item__content"><span class="service-item__title">99% Satisfied Customers</span>
-              <p class="service-item__txt">Our clients' opinions speak for themselves</p>
+            <div class="service-item__content"><span class="service-item__title">Terpercaya</span>
+              <p class="service-item__txt">Brand lokal terpercaya</p>
             </div>
           </div>
           <div class="service-item">
@@ -57,8 +164,8 @@
                 </g>
               </svg>
             </div>
-            <div class="service-item__content"><span class="service-item__title">Originality Guaranteed</span>
-              <p class="service-item__txt">30 days warranty for each product from our store</p>
+            <div class="service-item__content"><span class="service-item__title">Produk Berkualitas</span>
+              <p class="service-item__txt">100% berkualitas dan terjamin</p>
             </div>
           </div>
         </div>
@@ -83,16 +190,130 @@
             </div>
           </div>
         </div> -->
-        <div class="row spacing">
+        <div class="spacing">
+          <div class="slideshow-container">
+            <div class="slides" >
+              <div class="slide">
+                <img src="{{asset('assets/images/Banner/3.png')}}" alt="Slide 1">
+              </div>
+              <div class="slide">
+                <img src="{{asset('assets/images/Banner/2.png')}}" alt="Slide 2">
+              </div>
+              <div class="slide">
+                <img src="{{asset('assets/images/Banner/1.png')}}" alt="Slide 3">
+              </div>
+              </div>
+            </div>
+          <div class="dots-container">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+        <div class="spacing">
+          <h1 class="section-title--default title--center">Katalog</h1>
+          <ul class="image-list">
+            <li class="card-list">
+              <div class="card">
+                <form action="{{ url('searchCatalog') }}" id="hoodie">
+                  <a href="#" onclick="event.preventDefault(); document.getElementById('hoodie').submit();"><img src="{{asset('assets/images/1.png')}}" alt="Catalog Image"></a>
+                  <div class="card-content">
+                    <a href="#" onclick="event.preventDefault(); document.getElementById('hoodie').submit();"><h3>HOODIE</h3></a>
+                    <p>HOODIE Custom PESAN SATUAN Desain Suka Suka, Full Colour Sablon DTF.</p>
+                    <input type="hidden" name="kategori" value="hoodie">
+                  </div>
+                </form>
+              </div>
+              <div class="card">
+                <form action="{{ url('searchCatalog') }}" id="kaos">
+                  <a onclick="event.preventDefault(); document.getElementById('kaos').submit();"><img src="{{asset('assets/images/2.png')}}" alt="Catalog Image"></a>
+                  <div class="card-content">
+                    <a onclick="event.preventDefault(); document.getElementById('kaos').submit();"><h3>KAOS</h3></a>
+                    <p>KAOS Custom PESAN SATUAN Desain Suka Suka, Full Colour Sablon DTF.</p>
+                  </div>
+                </form>
+              </div>
+              <div class="card">
+                <form action="{{ url('searchCatalog') }}" id="sweater">
+                  <a onclick="event.preventDefault(); document.getElementById('sweater').submit();"><img src="{{asset('assets/images/3.png')}}" alt="Catalog Image"></a>
+                  <div class="card-content">
+                    <a onclick="event.preventDefault(); document.getElementById('sweater').submit();"><h3>SWEATER</h3></a>
+                    <p>SWEATER Custom PESAN SATUAN Desain Suka Suka, Full Colour Sablon DTF</p>
+                  </div>
+                </form>
+              </div>
+            </li>
+            <li class="card-list">
+              <div class="card">
+                <form action="{{ url('searchCatalog') }}" id="pdh_pdl">
+                  <a onclick="event.preventDefault(); document.getElementById('pdh_pdl').submit();"><img src="{{asset('assets/images/4.png')}}" alt="Catalog Image"></a>
+                  <div class="card-content">
+                    <a onclick="event.preventDefault(); document.getElementById('pdh_pdl').submit();"><h3>PDH/PDL</h3></a>
+                    <p>Workshit PDH/PDL, Bahan Premium Desain Custom</p>
+                  </div>
+                </form>
+              </div>
+              <div class="card">
+                <form action="{{ url('searchCatalog') }}" id="polo">
+                  <a onclick="event.preventDefault(); document.getElementById('polo').submit();"><img src="{{asset('assets/images/5.png')}}" alt="Catalog Image"></a>
+                  <div class="card-content">
+                    <a onclick="event.preventDefault(); document.getElementById('polo').submit();"><h3>POLO</h3></a>
+                    <p>Elegan Polo Shirt, Bahan Premium Desain Custom</p>
+                  </div>
+                </form>
+              </div>
+              <div class="card">
+                <form action="{{ url('searchCatalog') }}" id="tote_bag">
+                  <a onclick="event.preventDefault(); document.getElementById('tote_bag').submit();"><img src="{{asset('assets/images/6.png')}}" alt="Catalog Image"></a>
+                  <div class="card-content">
+                    <a onclick="event.preventDefault(); document.getElementById('tote_bag').submit();"><h3>TOTE BAG</h3></a>
+                    <p> TOTE BAGE Custom, Bahan CANVAS Full Colour, Fit Style</p>
+                  </div>
+                </form>
+              </div>
+            </li>
+            <li class="card-list">
+              <div class="card">
+                <form action="{{ url('searchCatalog') }}" id="topi">
+                  <a onclick="event.preventDefault(); document.getElementById('topi').submit();"><img src="{{asset('assets/images/7.png')}}" alt="Catalog Image"></a>
+                  <div class="card-content">
+                    <a onclick="event.preventDefault(); document.getElementById('topi').submit();"><h3>Topi</h3></a>
+                    <p>Topi Custom, All Size Desain Suka-suka</p>
+                  </div>
+                </form>
+              </div>
+              <div class="card">
+                <form action="{{ url('searchCatalog') }}" id="jersey">
+                  <a onclick="event.preventDefault(); document.getElementById('jersey').submit();"><img src="{{asset('assets/images/8.png')}}" alt="Catalog Image"></a>
+                  <div class="card-content">
+                    <a onclick="event.preventDefault(); document.getElementById('jersey').submit();"><h3>JERSEY</h3></a>
+                    <p> JERSEY Custom, Full Colour, Bahan Nyerap Keringat.</p>
+                  </div>
+                </form>
+              </div>
+              <div class="card">
+                <form action="{{ url('searchCatalog') }}" id="kaos">
+                  <a onclick="event.preventDefault(); document.getElementById('kaos').submit();"><img src="{{asset('assets/images/2.png')}}" alt="Catalog Image"></a>
+                  <div class="card-content">
+                    <a onclick="event.preventDefault(); document.getElementById('kaos').submit();"><h3>KAOS</h3></a>
+                    <p>KAOS Custom PESAN SATUAN Desain Suka Suka, Full Colour Sablon DTF.</p>
+                  </div>
+                </form>
+              </div>
+            </li>
+            <!-- Tambahkan lebih banyak gambar sesuai kebutuhan -->
+          </ul>
+        </div>
+        <!--div class="row spacing">
           <div class="sub-row">
             <h1 class="section-title--default">Rekomendasi khusus untuk Anda</h1><a class="btn btn--default" href="{{ route('product.search') }}">Lihat Lebih</a>
           </div>
           <div class="product-cards-slider">
-            <svg class="product-cards-slider_left-arrow" id="leftArrow" xmlns="http://www.w3.org/2000/svg" width="23.336" height="20.281" viewBox="0 0 23.336 20.281">
+            <--<svg class="product-cards-slider_left-arrow" id="leftArrow" xmlns="http://www.w3.org/2000/svg" width="23.336" height="20.281" viewBox="0 0 23.336 20.281">
               <path d="M10.139,20.281,1.685,11.82,0,10.135,1.685,8.45,10.139,0l1.685,1.681L4.561,8.944H23.336v2.383H4.561l7.263,7.266Z" fill="#cecece"></path>
-            </svg>
+            </svg>->
             <div class="product-cards-slider__cards-container">
-              <!-- <div class="product-card">
+              <-- <div class="product-card">
                 <div class="product-card__img">
                   <div class="product-card__actions"><span class="tag">30 %</span>
                     <div class="btn-round btn-round--secondary">
@@ -105,7 +326,7 @@
                 <div class="product-card__content">
                   <h2 class="product-card__title"> <a href="#">T-Shirt Summer Vibes</a></h2><span class="product-card__price product-card__price--new">$119.99</span><span class="product-card__price product-card__price--old">$119.99</span>
                 </div>
-              </div> -->
+              </div> ->
               @foreach ($sablon as $produk)
               <form id="detailForm{{ $produk->id }}" action="detail" method="GET">
                 @csrf
@@ -128,210 +349,15 @@
                 <input type="hidden" name="id" value="{{$produk->id}}">
               </form>
               @endforeach
-              <!--div class="product-card">
-                <div class="product-card__img">
-                  <div class="product-card__actions" style="justify-content: flex-end;">
-                    <div class="btn-round btn-round--secondary">
-                      <svg class="btn-round__icon--center" xmlns="http://www.w3.org/2000/svg" width="16.5" height="16.5" viewBox="0 0 16.5 16.5">
-                        <path d="M17.679,6A4.631,4.631,0,0,0,14.25,7.554,4.631,4.631,0,0,0,10.821,6,5.045,5.045,0,0,0,6,11.233c0,4.212,7.478,10.817,7.8,11.1a.688.688,0,0,0,.9.008c.319-.27,7.805-6.664,7.805-11.1A5.045,5.045,0,0,0,17.679,6ZM14.257,20.9c-2.271-2.079-6.882-6.877-6.882-9.663a3.673,3.673,0,0,1,3.446-3.858,3.361,3.361,0,0,1,2.843,1.679.687.687,0,0,0,1.172,0,3.362,3.362,0,0,1,2.843-1.679,3.673,3.673,0,0,1,3.446,3.858C21.125,14.179,16.527,18.876,14.257,20.9Z" transform="translate(-6 -6)"></path>
-                      </svg>
-                    </div>
-                  </div><a href="#"><img src="images/model.png" alt="product image"/></a>
-                </div>
-                <div class="product-card__content">
-                  <h2 class="product-card__title"> <a href="#">T-Shirt Summer Vibes</a></h2><span class="product-card__price">$119.99</span>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card__img">
-                  <div class="product-card__actions" style="justify-content: flex-end;">
-                    <div class="btn-round btn-round--secondary">
-                      <svg class="btn-round__icon--center" xmlns="http://www.w3.org/2000/svg" width="16.5" height="16.5" viewBox="0 0 16.5 16.5">
-                        <path d="M17.679,6A4.631,4.631,0,0,0,14.25,7.554,4.631,4.631,0,0,0,10.821,6,5.045,5.045,0,0,0,6,11.233c0,4.212,7.478,10.817,7.8,11.1a.688.688,0,0,0,.9.008c.319-.27,7.805-6.664,7.805-11.1A5.045,5.045,0,0,0,17.679,6ZM14.257,20.9c-2.271-2.079-6.882-6.877-6.882-9.663a3.673,3.673,0,0,1,3.446-3.858,3.361,3.361,0,0,1,2.843,1.679.687.687,0,0,0,1.172,0,3.362,3.362,0,0,1,2.843-1.679,3.673,3.673,0,0,1,3.446,3.858C21.125,14.179,16.527,18.876,14.257,20.9Z" transform="translate(-6 -6)"></path>
-                      </svg>
-                    </div>
-                  </div><a href="#"><img src="images/model.png" alt="product image"/></a>
-                </div>
-                <div class="product-card__content">
-                  <h2 class="product-card__title"> <a href="#">T-Shirt Summer Vibes</a></h2><span class="product-card__price">$119.99</span>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card__img">
-                  <div class="product-card__actions" style="justify-content: flex-end;">
-                    <div class="btn-round btn-round--secondary">
-                      <svg class="btn-round__icon--center" xmlns="http://www.w3.org/2000/svg" width="16.5" height="16.5" viewBox="0 0 16.5 16.5">
-                        <path d="M17.679,6A4.631,4.631,0,0,0,14.25,7.554,4.631,4.631,0,0,0,10.821,6,5.045,5.045,0,0,0,6,11.233c0,4.212,7.478,10.817,7.8,11.1a.688.688,0,0,0,.9.008c.319-.27,7.805-6.664,7.805-11.1A5.045,5.045,0,0,0,17.679,6ZM14.257,20.9c-2.271-2.079-6.882-6.877-6.882-9.663a3.673,3.673,0,0,1,3.446-3.858,3.361,3.361,0,0,1,2.843,1.679.687.687,0,0,0,1.172,0,3.362,3.362,0,0,1,2.843-1.679,3.673,3.673,0,0,1,3.446,3.858C21.125,14.179,16.527,18.876,14.257,20.9Z" transform="translate(-6 -6)"></path>
-                      </svg>
-                    </div>
-                  </div><a href="#"><img src="images/model.png" alt="product image"/></a>
-                </div>
-                <div class="product-card__content">
-                  <h2 class="product-card__title"> <a href="#">T-Shirt Summer Vibes</a></h2><span class="product-card__price">$119.99</span>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card__img">
-                  <div class="product-card__actions" style="justify-content: flex-end;">
-                    <div class="btn-round btn-round--secondary">
-                      <svg class="btn-round__icon--center" xmlns="http://www.w3.org/2000/svg" width="16.5" height="16.5" viewBox="0 0 16.5 16.5">
-                        <path d="M17.679,6A4.631,4.631,0,0,0,14.25,7.554,4.631,4.631,0,0,0,10.821,6,5.045,5.045,0,0,0,6,11.233c0,4.212,7.478,10.817,7.8,11.1a.688.688,0,0,0,.9.008c.319-.27,7.805-6.664,7.805-11.1A5.045,5.045,0,0,0,17.679,6ZM14.257,20.9c-2.271-2.079-6.882-6.877-6.882-9.663a3.673,3.673,0,0,1,3.446-3.858,3.361,3.361,0,0,1,2.843,1.679.687.687,0,0,0,1.172,0,3.362,3.362,0,0,1,2.843-1.679,3.673,3.673,0,0,1,3.446,3.858C21.125,14.179,16.527,18.876,14.257,20.9Z" transform="translate(-6 -6)"></path>
-                      </svg>
-                    </div>
-                  </div><a href="#"><img src="images/model.png" alt="product image"/></a>
-                </div>
-                <div class="product-card__content">
-                  <h2 class="product-card__title"> <a href="#">T-Shirt Summer Vibes</a></h2><span class="product-card__price">$119.99</span>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card__img">
-                  <div class="product-card__actions" style="justify-content: flex-end;">
-                    <div class="btn-round btn-round--secondary">
-                      <svg class="btn-round__icon--center" xmlns="http://www.w3.org/2000/svg" width="16.5" height="16.5" viewBox="0 0 16.5 16.5">
-                        <path d="M17.679,6A4.631,4.631,0,0,0,14.25,7.554,4.631,4.631,0,0,0,10.821,6,5.045,5.045,0,0,0,6,11.233c0,4.212,7.478,10.817,7.8,11.1a.688.688,0,0,0,.9.008c.319-.27,7.805-6.664,7.805-11.1A5.045,5.045,0,0,0,17.679,6ZM14.257,20.9c-2.271-2.079-6.882-6.877-6.882-9.663a3.673,3.673,0,0,1,3.446-3.858,3.361,3.361,0,0,1,2.843,1.679.687.687,0,0,0,1.172,0,3.362,3.362,0,0,1,2.843-1.679,3.673,3.673,0,0,1,3.446,3.858C21.125,14.179,16.527,18.876,14.257,20.9Z" transform="translate(-6 -6)"></path>
-                      </svg>
-                    </div>
-                  </div><a href="#"><img src="images/model.png" alt="product image"/></a>
-                </div>
-                <div class="product-card__content">
-                  <h2 class="product-card__title"> <a href="#">T-Shirt Summer Vibes</a></h2><span class="product-card__price">$119.99</span>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card__img">
-                  <div class="product-card__actions" style="justify-content: flex-end;">
-                    <div class="btn-round btn-round--secondary">
-                      <svg class="btn-round__icon--center" xmlns="http://www.w3.org/2000/svg" width="16.5" height="16.5" viewBox="0 0 16.5 16.5">
-                        <path d="M17.679,6A4.631,4.631,0,0,0,14.25,7.554,4.631,4.631,0,0,0,10.821,6,5.045,5.045,0,0,0,6,11.233c0,4.212,7.478,10.817,7.8,11.1a.688.688,0,0,0,.9.008c.319-.27,7.805-6.664,7.805-11.1A5.045,5.045,0,0,0,17.679,6ZM14.257,20.9c-2.271-2.079-6.882-6.877-6.882-9.663a3.673,3.673,0,0,1,3.446-3.858,3.361,3.361,0,0,1,2.843,1.679.687.687,0,0,0,1.172,0,3.362,3.362,0,0,1,2.843-1.679,3.673,3.673,0,0,1,3.446,3.858C21.125,14.179,16.527,18.876,14.257,20.9Z" transform="translate(-6 -6)"></path>
-                      </svg>
-                    </div>
-                  </div><a href="#"><img src="images/model.png" alt="product image"/></a>
-                </div>
-                <div class="product-card__content">
-                  <h2 class="product-card__title"> <a href="#">T-Shirt Summer Vibes</a></h2><span class="product-card__price">$119.99</span>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card__img">
-                  <div class="product-card__actions" style="justify-content: flex-end;">
-                    <div class="btn-round btn-round--secondary">
-                      <svg class="btn-round__icon--center" xmlns="http://www.w3.org/2000/svg" width="16.5" height="16.5" viewBox="0 0 16.5 16.5">
-                        <path d="M17.679,6A4.631,4.631,0,0,0,14.25,7.554,4.631,4.631,0,0,0,10.821,6,5.045,5.045,0,0,0,6,11.233c0,4.212,7.478,10.817,7.8,11.1a.688.688,0,0,0,.9.008c.319-.27,7.805-6.664,7.805-11.1A5.045,5.045,0,0,0,17.679,6ZM14.257,20.9c-2.271-2.079-6.882-6.877-6.882-9.663a3.673,3.673,0,0,1,3.446-3.858,3.361,3.361,0,0,1,2.843,1.679.687.687,0,0,0,1.172,0,3.362,3.362,0,0,1,2.843-1.679,3.673,3.673,0,0,1,3.446,3.858C21.125,14.179,16.527,18.876,14.257,20.9Z" transform="translate(-6 -6)"></path>
-                      </svg>
-                    </div>
-                  </div><a href="#"><img src="images/model.png" alt="product image"/></a>
-                </div>
-                <div class="product-card__content">
-                  <h2 class="product-card__title"> <a href="#">T-Shirt Summer Vibes</a></h2><span class="product-card__price">$119.99</span>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card__img">
-                  <div class="product-card__actions" style="justify-content: flex-end;">
-                    <div class="btn-round btn-round--secondary">
-                      <svg class="btn-round__icon--center" xmlns="http://www.w3.org/2000/svg" width="16.5" height="16.5" viewBox="0 0 16.5 16.5">
-                        <path d="M17.679,6A4.631,4.631,0,0,0,14.25,7.554,4.631,4.631,0,0,0,10.821,6,5.045,5.045,0,0,0,6,11.233c0,4.212,7.478,10.817,7.8,11.1a.688.688,0,0,0,.9.008c.319-.27,7.805-6.664,7.805-11.1A5.045,5.045,0,0,0,17.679,6ZM14.257,20.9c-2.271-2.079-6.882-6.877-6.882-9.663a3.673,3.673,0,0,1,3.446-3.858,3.361,3.361,0,0,1,2.843,1.679.687.687,0,0,0,1.172,0,3.362,3.362,0,0,1,2.843-1.679,3.673,3.673,0,0,1,3.446,3.858C21.125,14.179,16.527,18.876,14.257,20.9Z" transform="translate(-6 -6)"></path>
-                      </svg>
-                    </div>
-                  </div><a href="#"><img src="images/model.png" alt="product image"/></a>
-                </div>
-                <div class="product-card__content">
-                  <h2 class="product-card__title"> <a href="#">T-Shirt Summer Vibes</a></h2><span class="product-card__price">$119.99</span>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card__img">
-                  <div class="product-card__actions" style="justify-content: flex-end;">
-                    <div class="btn-round btn-round--secondary">
-                      <svg class="btn-round__icon--center" xmlns="http://www.w3.org/2000/svg" width="16.5" height="16.5" viewBox="0 0 16.5 16.5">
-                        <path d="M17.679,6A4.631,4.631,0,0,0,14.25,7.554,4.631,4.631,0,0,0,10.821,6,5.045,5.045,0,0,0,6,11.233c0,4.212,7.478,10.817,7.8,11.1a.688.688,0,0,0,.9.008c.319-.27,7.805-6.664,7.805-11.1A5.045,5.045,0,0,0,17.679,6ZM14.257,20.9c-2.271-2.079-6.882-6.877-6.882-9.663a3.673,3.673,0,0,1,3.446-3.858,3.361,3.361,0,0,1,2.843,1.679.687.687,0,0,0,1.172,0,3.362,3.362,0,0,1,2.843-1.679,3.673,3.673,0,0,1,3.446,3.858C21.125,14.179,16.527,18.876,14.257,20.9Z" transform="translate(-6 -6)"></path>
-                      </svg>
-                    </div>
-                  </div><a href="#"><img src="images/model.png" alt="product image"/></a>
-                </div>
-                <div class="product-card__content">
-                  <h2 class="product-card__title"> <a href="#">T-Shirt Summer Vibes</a></h2><span class="product-card__price">$119.99</span>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card__img">
-                  <div class="product-card__actions" style="justify-content: flex-end;">
-                    <div class="btn-round btn-round--secondary">
-                      <svg class="btn-round__icon--center" xmlns="http://www.w3.org/2000/svg" width="16.5" height="16.5" viewBox="0 0 16.5 16.5">
-                        <path d="M17.679,6A4.631,4.631,0,0,0,14.25,7.554,4.631,4.631,0,0,0,10.821,6,5.045,5.045,0,0,0,6,11.233c0,4.212,7.478,10.817,7.8,11.1a.688.688,0,0,0,.9.008c.319-.27,7.805-6.664,7.805-11.1A5.045,5.045,0,0,0,17.679,6ZM14.257,20.9c-2.271-2.079-6.882-6.877-6.882-9.663a3.673,3.673,0,0,1,3.446-3.858,3.361,3.361,0,0,1,2.843,1.679.687.687,0,0,0,1.172,0,3.362,3.362,0,0,1,2.843-1.679,3.673,3.673,0,0,1,3.446,3.858C21.125,14.179,16.527,18.876,14.257,20.9Z" transform="translate(-6 -6)"></path>
-                      </svg>
-                    </div>
-                  </div><a href="#"><img src="images/model.png" alt="product image"/></a>
-                </div>
-                <div class="product-card__content">
-                  <h2 class="product-card__title"> <a href="#">T-Shirt Summer Vibes</a></h2><span class="product-card__price">$119.99</span>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card__img">
-                  <div class="product-card__actions" style="justify-content: flex-end;">
-                    <div class="btn-round btn-round--secondary">
-                      <svg class="btn-round__icon--center" xmlns="http://www.w3.org/2000/svg" width="16.5" height="16.5" viewBox="0 0 16.5 16.5">
-                        <path d="M17.679,6A4.631,4.631,0,0,0,14.25,7.554,4.631,4.631,0,0,0,10.821,6,5.045,5.045,0,0,0,6,11.233c0,4.212,7.478,10.817,7.8,11.1a.688.688,0,0,0,.9.008c.319-.27,7.805-6.664,7.805-11.1A5.045,5.045,0,0,0,17.679,6ZM14.257,20.9c-2.271-2.079-6.882-6.877-6.882-9.663a3.673,3.673,0,0,1,3.446-3.858,3.361,3.361,0,0,1,2.843,1.679.687.687,0,0,0,1.172,0,3.362,3.362,0,0,1,2.843-1.679,3.673,3.673,0,0,1,3.446,3.858C21.125,14.179,16.527,18.876,14.257,20.9Z" transform="translate(-6 -6)"></path>
-                      </svg>
-                    </div>
-                  </div><a href="#"><img src="images/model.png" alt="product image"/></a>
-                </div>
-                <div class="product-card__content">
-                  <h2 class="product-card__title"> <a href="#">T-Shirt Summer Vibes</a></h2><span class="product-card__price">$119.99</span>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card__img">
-                  <div class="product-card__actions" style="justify-content: flex-end;">
-                    <div class="btn-round btn-round--secondary">
-                      <svg class="btn-round__icon--center" xmlns="http://www.w3.org/2000/svg" width="16.5" height="16.5" viewBox="0 0 16.5 16.5">
-                        <path d="M17.679,6A4.631,4.631,0,0,0,14.25,7.554,4.631,4.631,0,0,0,10.821,6,5.045,5.045,0,0,0,6,11.233c0,4.212,7.478,10.817,7.8,11.1a.688.688,0,0,0,.9.008c.319-.27,7.805-6.664,7.805-11.1A5.045,5.045,0,0,0,17.679,6ZM14.257,20.9c-2.271-2.079-6.882-6.877-6.882-9.663a3.673,3.673,0,0,1,3.446-3.858,3.361,3.361,0,0,1,2.843,1.679.687.687,0,0,0,1.172,0,3.362,3.362,0,0,1,2.843-1.679,3.673,3.673,0,0,1,3.446,3.858C21.125,14.179,16.527,18.876,14.257,20.9Z" transform="translate(-6 -6)"></path>
-                      </svg>
-                    </div>
-                  </div><a href="#"><img src="images/model.png" alt="product image"/></a>
-                </div>
-                <div class="product-card__content">
-                  <h2 class="product-card__title"> <a href="#">T-Shirt Summer Vibes</a></h2><span class="product-card__price">$119.99</span>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card__img">
-                  <div class="product-card__actions" style="justify-content: flex-end;">
-                    <div class="btn-round btn-round--secondary">
-                      <svg class="btn-round__icon--center" xmlns="http://www.w3.org/2000/svg" width="16.5" height="16.5" viewBox="0 0 16.5 16.5">
-                        <path d="M17.679,6A4.631,4.631,0,0,0,14.25,7.554,4.631,4.631,0,0,0,10.821,6,5.045,5.045,0,0,0,6,11.233c0,4.212,7.478,10.817,7.8,11.1a.688.688,0,0,0,.9.008c.319-.27,7.805-6.664,7.805-11.1A5.045,5.045,0,0,0,17.679,6ZM14.257,20.9c-2.271-2.079-6.882-6.877-6.882-9.663a3.673,3.673,0,0,1,3.446-3.858,3.361,3.361,0,0,1,2.843,1.679.687.687,0,0,0,1.172,0,3.362,3.362,0,0,1,2.843-1.679,3.673,3.673,0,0,1,3.446,3.858C21.125,14.179,16.527,18.876,14.257,20.9Z" transform="translate(-6 -6)"></path>
-                      </svg>
-                    </div>
-                  </div><a href="#"><img src="images/model.png" alt="product image"/></a>
-                </div>
-                <div class="product-card__content">
-                  <h2 class="product-card__title"> <a href="#">T-Shirt Summer Vibes</a></h2><span class="product-card__price">$119.99</span>
-                </div>
-              </div>
-              <div class="product-card">
-                <div class="product-card__img">
-                  <div class="product-card__actions" style="justify-content: flex-end;">
-                    <div class="btn-round btn-round--secondary">
-                      <svg class="btn-round__icon--center" xmlns="http://www.w3.org/2000/svg" width="16.5" height="16.5" viewBox="0 0 16.5 16.5">
-                        <path d="M17.679,6A4.631,4.631,0,0,0,14.25,7.554,4.631,4.631,0,0,0,10.821,6,5.045,5.045,0,0,0,6,11.233c0,4.212,7.478,10.817,7.8,11.1a.688.688,0,0,0,.9.008c.319-.27,7.805-6.664,7.805-11.1A5.045,5.045,0,0,0,17.679,6ZM14.257,20.9c-2.271-2.079-6.882-6.877-6.882-9.663a3.673,3.673,0,0,1,3.446-3.858,3.361,3.361,0,0,1,2.843,1.679.687.687,0,0,0,1.172,0,3.362,3.362,0,0,1,2.843-1.679,3.673,3.673,0,0,1,3.446,3.858C21.125,14.179,16.527,18.876,14.257,20.9Z" transform="translate(-6 -6)"></path>
-                      </svg>
-                    </div>
-                  </div><a href="#"><img src="images/model.png" alt="product image"/></a>
-                </div>
-                <div class="product-card__content">
-                  <h2 class="product-card__title"> <a href="#">T-Shirt Summer Vibes</a></h2><span class="product-card__price">$119.99</span>
-                </div>
-              </div> -->
+              
             </div>
-            <svg class="product-cards-slider_right-arrow" id="rightArrow" xmlns="http://www.w3.org/2000/svg" width="23.336" height="20.281" viewBox="0 0 23.336 20.281">
+            <!-<svg class="product-cards-slider_right-arrow" id="rightArrow" xmlns="http://www.w3.org/2000/svg" width="23.336" height="20.281" viewBox="0 0 23.336 20.281">
               <path d="M10.139,20.281,1.685,11.82,0,10.135,1.685,8.45,10.139,0l1.685,1.681L4.561,8.944H23.336v2.383H4.561l7.263,7.266Z" transform="translate(23.336 20.281) rotate(180)"></path>
-            </svg>
-          </div>
-        </div>
+            </svg>->
+          </div
+        </div-->
         <div class="spacing">
-          <h1 class="section-title--default title--center">Why should you choose us?</h1>
+          <h1 class="section-title--default title--center">Alasan Anda Memilih Kami</h1>
           <div class="items-4-grid-container">
             <div class="service__grid-item">
               <div class="service-item__icon--lg">
@@ -342,8 +368,8 @@
                   <path d="M11.675,53.807A1,1,0,0,0,10.668,52.8H3.507a1.007,1.007,0,1,0,0,2.013H10.63A.986.986,0,0,0,11.675,53.807Z" transform="translate(-2.5 -40.838)"></path>
                 </svg>
               </div>
-              <h3 class="service-item__title--lg">Free Shipping</h3>
-              <p class="service-item__txt--lg">All purchases over $199 are eligible for free shipping via USPS First Class Mail.</p>
+              <h3 class="service-item__title--lg">Pengiriman Cepat</h3>
+              <p class="service-item__txt--lg">Kami siap mengirimkan produk kami ke seluruh wilayah Indonesia dengan waktu yang singkat dan harga terjangkau.</p>
             </div>
             <div class="service__grid-item">
               <div class="service-item__icon--lg">
@@ -355,8 +381,8 @@
                   <rect width="1.725" height="1.725" transform="translate(18.984 11.024)"></rect>
                 </svg>
               </div>
-              <h3 class="service-item__title--lg">Easy Payments</h3>
-              <p class="service-item__txt--lg">All payments are processed instantly over a secure payment protocol.</p>
+              <h3 class="service-item__title--lg">Tanpa Batas Pembelian</h3>
+              <p class="service-item__txt--lg">Tidak ada batasan pembelian yang mengikat. Menerima pesanan satuan maupun grosir.</p>
             </div>
             <div class="service__grid-item">
               <div class="service-item__icon--lg">
@@ -367,8 +393,8 @@
                   </g>
                 </svg>
               </div>
-              <h3 class="service-item__title--lg">Free Shipping</h3>
-              <p class="service-item__txt--lg">If an item arrived damaged or you've changed your mind, you can send it back for a full refund.</p>
+              <h3 class="service-item__title--lg">Terpercaya</h3>
+              <p class="service-item__txt--lg">Kami dengan bangga menyediakan beragam produk dari brand lokal yang telah terbukti menjadi pilihan terpercaya oleh masyarakat</p>
             </div>
             <div class="service__grid-item">
               <div class="service-item__icon--lg">
@@ -379,18 +405,18 @@
                   </g>
                 </svg>
               </div>
-              <h3 class="service-item__title--lg">Free Shipping</h3>
-              <p class="service-item__txt--lg">Designed to last, each of our products has been crafted with the finest materials.</p>
+              <h3 class="service-item__title--lg">Produk Berkualitas</h3>
+              <p class="service-item__txt--lg">Semua produk kami 100% terbuat dari bahan berkualitas tinggi, dan kualitasnya telah teruji serta terjamin untuk memberikan kepuasan yang tak tertandingi.</p>
             </div>
           </div>
         </div>
-        <div class="spacing">
+        <div class="spacing" >
           <h1 class="section-title--default title--center">Produk Terbaru Kami</h1>
           <div class="products-grid-container">
           @foreach ($terbaru as $produk)
               <form id="detailForm{{ $produk->id }}" action="{{ route('detail', ['id' => request('id')]) }}" method="GET">
                 @csrf
-                <div class="product-card">
+                <div class="product-card" >
                   <div class="product-card__img">
                     <div class="product-card__actions" style="justify-content: flex-end;">
                       <div class="btn-round btn-round--secondary">
@@ -409,77 +435,12 @@
                 <input type="hidden" name="id" value="{{$produk->id}}">
               </form>
               @endforeach
-            <!-- <div class="product-card">
-              <div class="product-card__img">
-                <div class="product-card__actions" style="justify-content: flex-end;">
-                  <div class="btn-round btn-round--secondary">
-                    <svg class="btn-round__icon--center" xmlns="http://www.w3.org/2000/svg" width="16.5" height="16.5" viewBox="0 0 16.5 16.5">
-                      <path d="M17.679,6A4.631,4.631,0,0,0,14.25,7.554,4.631,4.631,0,0,0,10.821,6,5.045,5.045,0,0,0,6,11.233c0,4.212,7.478,10.817,7.8,11.1a.688.688,0,0,0,.9.008c.319-.27,7.805-6.664,7.805-11.1A5.045,5.045,0,0,0,17.679,6ZM14.257,20.9c-2.271-2.079-6.882-6.877-6.882-9.663a3.673,3.673,0,0,1,3.446-3.858,3.361,3.361,0,0,1,2.843,1.679.687.687,0,0,0,1.172,0,3.362,3.362,0,0,1,2.843-1.679,3.673,3.673,0,0,1,3.446,3.858C21.125,14.179,16.527,18.876,14.257,20.9Z" transform="translate(-6 -6)"></path>
-                    </svg>
-                  </div>
-                </div><a href="#"><img src="images/model.png" alt="product image"/></a>
-              </div>
-              <div class="product-card__content">
-                <h2 class="product-card__title"> <a href="#">T-Shirt Summer Vibes</a></h2><span class="product-card__price">$119.99</span>
-              </div>
-            </div>
-            <div class="product-card">
-              <div class="product-card__img">
-                <div class="product-card__actions" style="justify-content: flex-end;">
-                  <div class="btn-round btn-round--secondary">
-                    <svg class="btn-round__icon--center" xmlns="http://www.w3.org/2000/svg" width="16.5" height="16.5" viewBox="0 0 16.5 16.5">
-                      <path d="M17.679,6A4.631,4.631,0,0,0,14.25,7.554,4.631,4.631,0,0,0,10.821,6,5.045,5.045,0,0,0,6,11.233c0,4.212,7.478,10.817,7.8,11.1a.688.688,0,0,0,.9.008c.319-.27,7.805-6.664,7.805-11.1A5.045,5.045,0,0,0,17.679,6ZM14.257,20.9c-2.271-2.079-6.882-6.877-6.882-9.663a3.673,3.673,0,0,1,3.446-3.858,3.361,3.361,0,0,1,2.843,1.679.687.687,0,0,0,1.172,0,3.362,3.362,0,0,1,2.843-1.679,3.673,3.673,0,0,1,3.446,3.858C21.125,14.179,16.527,18.876,14.257,20.9Z" transform="translate(-6 -6)"></path>
-                    </svg>
-                  </div>
-                </div><a href="#"><img src="images/model.png" alt="product image"/></a>
-              </div>
-              <div class="product-card__content">
-                <h2 class="product-card__title"> <a href="#">T-Shirt Summer Vibes</a></h2><span class="product-card__price">$119.99</span>
-              </div>
-            </div> -->
-            <!-- <div class="product-card">
-              <div class="product-card__img">
-                <div class="product-card__actions" style="justify-content: flex-end;">
-                  <div class="btn-round btn-round--secondary">
-                    <svg class="btn-round__icon--center" xmlns="http://www.w3.org/2000/svg" width="16.5" height="16.5" viewBox="0 0 16.5 16.5">
-                      <path d="M17.679,6A4.631,4.631,0,0,0,14.25,7.554,4.631,4.631,0,0,0,10.821,6,5.045,5.045,0,0,0,6,11.233c0,4.212,7.478,10.817,7.8,11.1a.688.688,0,0,0,.9.008c.319-.27,7.805-6.664,7.805-11.1A5.045,5.045,0,0,0,17.679,6ZM14.257,20.9c-2.271-2.079-6.882-6.877-6.882-9.663a3.673,3.673,0,0,1,3.446-3.858,3.361,3.361,0,0,1,2.843,1.679.687.687,0,0,0,1.172,0,3.362,3.362,0,0,1,2.843-1.679,3.673,3.673,0,0,1,3.446,3.858C21.125,14.179,16.527,18.876,14.257,20.9Z" transform="translate(-6 -6)"></path>
-                    </svg>
-                  </div>
-                </div><a href="#"><img src="images/model.png" alt="product image"/></a>
-              </div>
-              <div class="product-card__content">
-                <h2 class="product-card__title"> <a href="#">T-Shirt Summer Vibes</a></h2><span class="product-card__price">$119.99</span>
-              </div>
-            </div>
-            <div class="product-card">
-              <div class="product-card__img">
-                <div class="product-card__actions" style="justify-content: flex-end;">
-                  <div class="btn-round btn-round--secondary">
-                    <svg class="btn-round__icon--center" xmlns="http://www.w3.org/2000/svg" width="16.5" height="16.5" viewBox="0 0 16.5 16.5">
-                      <path d="M17.679,6A4.631,4.631,0,0,0,14.25,7.554,4.631,4.631,0,0,0,10.821,6,5.045,5.045,0,0,0,6,11.233c0,4.212,7.478,10.817,7.8,11.1a.688.688,0,0,0,.9.008c.319-.27,7.805-6.664,7.805-11.1A5.045,5.045,0,0,0,17.679,6ZM14.257,20.9c-2.271-2.079-6.882-6.877-6.882-9.663a3.673,3.673,0,0,1,3.446-3.858,3.361,3.361,0,0,1,2.843,1.679.687.687,0,0,0,1.172,0,3.362,3.362,0,0,1,2.843-1.679,3.673,3.673,0,0,1,3.446,3.858C21.125,14.179,16.527,18.876,14.257,20.9Z" transform="translate(-6 -6)"></path>
-                    </svg>
-                  </div>
-                </div><a href="#"><img src="images/model.png" alt="product image"/></a>
-              </div>
-              <div class="product-card__content">
-                <h2 class="product-card__title"> <a href="#">T-Shirt Summer Vibes</a></h2><span class="product-card__price">$119.99</span>
-              </div>
-            </div> -->
+            
           </div>
         </div>
       </main>
     </div>
-    <!-- <div class="container spacing">
-      <div class="newsletter">
-        <div class="newsletter__content">
-          <p class="newsletter__title">Subscribe to our newsletter and receive exclusive offers every week</p>
-          <div class="newsletter__form">
-            <input class="txt-input newsletter__input" type="text" name="Newsletter" placeholder="Enter your email">
-            <input class="btn btn--primary newsletter__btn" type="submit" value="Subscribe">
-          </div>
-        </div>
-      </div>
-    </div-->
+    
     <div class="floating-button">
       <a href="https://wa.me/6281228615885"></a>
     </div>
@@ -487,5 +448,29 @@
       @include('footer')
     <!-- </div> -->
     <script defer src="scripts/product-cards-slider.js"></script>
+    <script>
+      let slideIndex = 0;
+      showSlides();
+
+      function showSlides() {
+        let slides = document.querySelector(".slides");
+        let dots = document.getElementsByClassName("dot");
+
+        slideIndex++;
+        if (slideIndex > slides.children.length - 1) {
+            slideIndex = 0;
+        }
+
+        const offset = -slideIndex * 100;
+        slides.style.transform = `translateX(${offset}%)`;
+
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].classList.remove("active");
+        }
+        dots[slideIndex].classList.add("active");
+
+        setTimeout(showSlides, 2000); // Ganti gambar setiap 2 detik
+      }
+    </script>
   </body>
 </html>

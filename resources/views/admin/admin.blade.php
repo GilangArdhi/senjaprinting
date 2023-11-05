@@ -82,6 +82,21 @@
                                             <input type="text" class="form-control" id="nama" name="nama">
                                         </div>
                                         <div class="form-group">
+                                            <select name="katalog" id="katalog">
+                                                <option value="Pilih Katalog" disabled selected>Pilih Katalog</option>
+                                                <option value="hoodie">Hoodie</option>
+                                                <option value="kaos">Kaos</option>
+                                                <option value="sweater">Sweater</option>
+                                                <option value="polo">Polo</option>
+                                                <option value="pdh_pdl">PDH/PDL</option>
+                                                <option value="tote_bag">Tote Bag</option>
+                                                <option value="topi">Topi</option>
+                                                <option value="jersey">Jersey</option>
+                                            </select>
+                                            <label for="katalog" class="form-label">Katalog</label>
+                                            <input type="text" class="form-control" id="katalog" name="katalog">
+                                        </div>
+                                        <div class="form-group">
                                             <label for="gambar1" class="form-label">Gambar Utama</label>
                                             <input type="file" class="form-control" id="gambar1" name="gambar1">
                                         </div>

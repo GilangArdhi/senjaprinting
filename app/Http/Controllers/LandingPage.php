@@ -163,6 +163,28 @@ class LandingPage extends Controller
             return view('landingpage.search', ['sablon' => $sablon]);
         }
     }
+    
+    public function searchByCategory(Request $request)
+    {
+        // dd(request('search'));
+        $keyword = $request->kategori;
+        // $restoran = User::get();
+        // $location = $request->input('location');
+        
+        $sablon = Product::where('kategori', $keyword)->get();
+        return view('landingpage.search', ['sablon' => $sablon]);
+
+        // if (!empty($keyword)){
+        //     // Lakukan query sesuai dengan keyword dan location yang diterima
+        //     $sablon = Product::where('judul', 'LIKE', '%' . $keyword . '%')->get();
+        //         // dd($food);
+                
+        //     return view('landingpage.search', ['sablon' => $sablon]);
+        // } else {
+        //     $sablon = Product::all();
+        //     return view('landingpage.search', ['sablon' => $sablon]);
+        // }
+    }
 
     // Memfilter Produk Yang Ingin Dilihat
     public function filterBySize(Request $request)

@@ -27,6 +27,7 @@ class AdminController extends Controller
     public function insert(Request $request){
         $idProduk = $request->idProduk;
         $namaProduk = $request ->nama;
+        $katalogProduk = $request ->katalog;
         if ($request->hasFile('gambar1')) {
             $gambarUtama = $request -> file('gambar1');
             $filenameGambarUtama = date('Y-m-d').$gambarUtama->getClientOriginalName();
@@ -62,6 +63,7 @@ class AdminController extends Controller
             $insert = Product::create([
                 'id' => $idProduk,
                 'judul' => $namaProduk,
+                'kategori' => $katalogProduk,
                 'gambar'=> $filenameGambarUtama,
                 'ukuran' => $ukuran,
                 'deskripsi' => $deskripsi,
