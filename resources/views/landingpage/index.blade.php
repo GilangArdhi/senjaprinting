@@ -109,6 +109,17 @@
       p {
         margin: 10px 0;
       }
+
+      @media screen and (max-width: 768px) {
+      .card-list {
+        flex-direction: column; /* Mengubah tata letak menjadi satu card per baris */
+      }
+
+      .card {
+        margin-bottom: 15px; /* Tambahkan spasi antara card */
+        /* Gaya lain yang sesuai untuk ponsel */
+      }
+}
     </style>
   </head>
   <body>
@@ -230,6 +241,7 @@
                   <div class="card-content">
                     <a onclick="event.preventDefault(); document.getElementById('kaos').submit();"><h3>KAOS</h3></a>
                     <p>KAOS Custom PESAN SATUAN Desain Suka Suka, Full Colour Sablon DTF.</p>
+                    <input type="hidden" name="kategori" value="kaos">
                   </div>
                 </form>
               </div>
@@ -239,6 +251,7 @@
                   <div class="card-content">
                     <a onclick="event.preventDefault(); document.getElementById('sweater').submit();"><h3>SWEATER</h3></a>
                     <p>SWEATER Custom PESAN SATUAN Desain Suka Suka, Full Colour Sablon DTF</p>
+                    <input type="hidden" name="kategori" value="sweater">
                   </div>
                 </form>
               </div>
@@ -250,6 +263,7 @@
                   <div class="card-content">
                     <a onclick="event.preventDefault(); document.getElementById('pdh_pdl').submit();"><h3>PDH/PDL</h3></a>
                     <p>Workshit PDH/PDL, Bahan Premium Desain Custom</p>
+                    <input type="hidden" name="kategori" value="pdh_pdl">
                   </div>
                 </form>
               </div>
@@ -259,6 +273,7 @@
                   <div class="card-content">
                     <a onclick="event.preventDefault(); document.getElementById('polo').submit();"><h3>POLO</h3></a>
                     <p>Elegan Polo Shirt, Bahan Premium Desain Custom</p>
+                    <input type="hidden" name="kategori" value="polo">
                   </div>
                 </form>
               </div>
@@ -268,6 +283,7 @@
                   <div class="card-content">
                     <a onclick="event.preventDefault(); document.getElementById('tote_bag').submit();"><h3>TOTE BAG</h3></a>
                     <p> TOTE BAGE Custom, Bahan CANVAS Full Colour, Fit Style</p>
+                    <input type="hidden" name="kategori" value="tote_bag">
                   </div>
                 </form>
               </div>
@@ -279,6 +295,7 @@
                   <div class="card-content">
                     <a onclick="event.preventDefault(); document.getElementById('topi').submit();"><h3>Topi</h3></a>
                     <p>Topi Custom, All Size Desain Suka-suka</p>
+                    <input type="hidden" name="kategori" value="topi">
                   </div>
                 </form>
               </div>
@@ -288,6 +305,7 @@
                   <div class="card-content">
                     <a onclick="event.preventDefault(); document.getElementById('jersey').submit();"><h3>JERSEY</h3></a>
                     <p> JERSEY Custom, Full Colour, Bahan Nyerap Keringat.</p>
+                    <input type="hidden" name="kategori" value="jersey">
                   </div>
                 </form>
               </div>
@@ -297,6 +315,7 @@
                   <div class="card-content">
                     <a onclick="event.preventDefault(); document.getElementById('kaos').submit();"><h3>KAOS</h3></a>
                     <p>KAOS Custom PESAN SATUAN Desain Suka Suka, Full Colour Sablon DTF.</p>
+                    <input type="hidden" name="kategori" value="kaos">
                   </div>
                 </form>
               </div>
