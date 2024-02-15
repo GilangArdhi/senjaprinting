@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', [LandingPage::class, 'index']);
 Route::get('masuk', [AuthController::class, 'login']);
 Route::get('daftar', [AuthController::class, 'daftar']);
@@ -34,7 +35,6 @@ Route::get('/products/filter', [LandingPage::class, 'filterBySize'])->name('prod
 Route::post('/masuk', [AuthController::class, 'masuk'])->name('masuk');
 Route::post('daftar', [AuthController::class, 'postdaftar'])->name('daftar');
 
-Route::get('notif', [DonationController::class, 'notification']);
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'admin']);
@@ -43,6 +43,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::post('edit', [AdminController::class, 'edit']);
     Route::post('delete', [AdminController::class, 'delete']);
     Route::get('transaksi', [AdminController::class, 'transaction']);
+    Route::get('tracking', [AdminController::class, 'trackUser']);
     // Route::get('/dashboard', [DashboardController::class, 'index']);
 });
 
@@ -61,5 +62,3 @@ Route::middleware(['auth', 'role:pelanggan'])->group(function(){
 }) ;
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -278,7 +278,16 @@
                                         class="nav-icon fas fa-edit"
                                     ></i>
                                     <p>
-                                        Pesanan
+                                        Transaksi
+                                        <!-- <i class="right fas fa-angle-left"></i> -->
+                                    </p>
+                                </a>
+                                <a href="tracking" class="nav-link">
+                                    <i
+                                        class="nav-icon fas fa-book"
+                                    ></i>
+                                    <p>
+                                        Pemantau Pengguna
                                         <!-- <i class="right fas fa-angle-left"></i> -->
                                     </p>
                                 </a>

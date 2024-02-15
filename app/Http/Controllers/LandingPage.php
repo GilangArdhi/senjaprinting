@@ -26,7 +26,7 @@ class LandingPage extends Controller
         //     $sablon[$index]['kadaluarsa'] = $date;
         // }
         // dd($sablon);
-        $terbaru = DB::table('produk')->orderBy('updated_at', 'asc')->take(5)->get();
+        $terbaru = DB::table('produk')->orderBy('updated_at', 'asc')->take(8)->get();
         return view('landingpage.index', ['sablon' => $sablon, 'terbaru' => $terbaru]);
     }
 

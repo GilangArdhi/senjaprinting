@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\FotoProduct;
+use App\Models\TrackRecord;
 use App\Models\User;
 use App\Models\Keranjang;
 use App\Models\Product;
@@ -254,9 +255,18 @@ class AdminController extends Controller
     // Mengarahkan ke halaman Pesanan
     public function transaction(){
         $transaksi = DB::table('donations')
-        ->join('produk', 'produk.id', '=', 'donations.id_produk')->orderBy('created_at', 'asc')->get();
+        ->join('produk', 'produk.id', '=', 'donations.id_produk')->orderBy('donations.created_at', 'asc')->get();
+
+        $trackRecords = TrackRecord::all();
 
         // dd($transaksi);
-        return view('admin.userTransaction', ['transaksi' => $transaksi]);
+        return view('admin.userTransaction', ['transaksi' => $transaksi, 'trackRecords' => $trackRecords]);
+    }
+    
+    public function trackUser(){
+        $trackRecords = TrackRecord::all();
+
+        // dd($transaksi);
+        return view('admin.userPath', ['trackRecords' => $trackRecords]);
     }
 }

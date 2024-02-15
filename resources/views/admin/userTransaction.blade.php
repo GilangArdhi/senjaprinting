@@ -123,6 +123,7 @@
                 <div class="container-fluid">
                     <div class="card shadow mb-4">
                         <div class="card-body">
+                            <h1>Transaksi Record</h1>
                             <div class="table-responsive">
                                 <table class="table table-bordered" width="100%" cellspacing="0">
                                     <thead class="text-center">
@@ -239,6 +240,7 @@
                     </div>
                 </div>
             </section>
+            
             <!-- /.content -->
         <!-- </div>
                 <section class="content">

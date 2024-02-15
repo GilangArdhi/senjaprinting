@@ -12,22 +12,22 @@ class Donation extends Model
     protected $guarded = [];
 
     public function setStatusPending() {
-        $this->attributes['status'] = 'pending';
+        $this->attributes['status'] = 'Proses';
         self::save();
     }
 
     public function setStatusSuccess() {
-        $this->attributes['status'] = 'success';
+        $this->attributes['status'] = 'Sukses';
         self::save();
     }
 
     public function setStatusFailed() {
-        $this->attributes['status'] = 'failed';
+        $this->attributes['status'] = 'Gagal';
         self::save();
     }
 
     public function setStatusExpired() {
-        $this->attributes['status'] = 'expired';
+        $this->attributes['status'] = 'Kadaluwarsa';
         self::save();
     }
 }

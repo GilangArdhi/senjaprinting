@@ -36,14 +36,15 @@ class DonationController extends Controller
             // dd($request->amount);
             $idProdukArray = explode(",", $request->idProduk);
             $qtyArray = explode(",", $request->qty);
-            $hargaArray = explode(",", $request->amount);
+            /*$hargaArray = explode(",", $request->amount);*/
             $qtyvalue = 0;
-            // dd($hargaArray);
+            
 
             $id_user = Auth::id();
             foreach ($idProdukArray as $key => $idProdukValue) {
                 $qty = isset($qtyArray[$key]) ? $qtyArray[$key] : $qtyvalue;
-                $harga = isset($hargaArray[$key]) ? $hargaArray[$key] : $qtyvalue;
+                /*$harga = isset($hargaArray[$key]) ? $hargaArray[$key] : $qtyvalue;*/
+                $harga = $request->amount / $qty;
 
                 $donation = Donation::create([
                     'order_id' => uniqid(),
@@ -55,7 +56,7 @@ class DonationController extends Controller
                     'noHp' => $request->noHp,
                     'id_produk' => $idProdukValue,
                     'kdPos' => $request->kdPos,
-                    'amount' => $harga,
+                    'amount' => $request->amount,
                     'qty' => $qty,
                 ]);
             }
@@ -65,12 +66,12 @@ class DonationController extends Controller
             $payload = [
                 'transaction_details' => [
                     'order_id'      => $donation->order_id,
-                    'gross_amount'  => $donation->amount,
+                    'gross_amount'  => $harga,
                 ],
                 'item_details' => [
                     [
                         'id' => $donation->type,
-                        'price' => $donation->amount,
+                        'price' => $harga,
                         'quantity'  => $donation->qty,
                         'name'  => $donation->id_produk,
                         // 'name'  => ucwords(str_replace('_', ' ', $donation->type)),
@@ -94,37 +95,74 @@ class DonationController extends Controller
         return response()->json($this->response);
     }
 
-    public function notification() {
-        $notif = new \Midtrans\Notification();
-
-        DB::transaction(function () use ($notif) {
-            $transactionStatus  = $notif->transaction_status;
-            $paymentType        = $notif->payment_type;
-            $orderId            = $notif->order_id;
-            $fraudStatus        = $notif->fraud_status;
-            $donation           = Donation::where('order_id', $orderId)->first();
-
-            if ($transactionStatus == 'caputre') {
-                if ($paymentType == 'credit_card') {
-                    if ($fraudStatus == 'challange') {
-                        $donation->setStatusPending();
+    public function handleNotification(Request $request)
+    {
+        $signature = $request->header('signature'); // Assuming signature is in a header
+    
+        if (!$this->validateMidtransSignature($signature, $request->all())) {
+            return response()->json(['error' => 'Invalid signature'], 400);
+        }
+    
+        try {
+            $this->updateOrderStatus($request);
+            
+            return response()->json(['message' => 'Notification processed successfully']);
+        } catch (\Exception $e) {
+            // Handle error gracefully, log it, etc.
+            return response()->json(['error' => 'An error occurred'], 500);
+        }
+    }
+    
+    private function validateMidtransSignature($signature, array $data)
+    {
+        // Implement your signature validation logic using Midtrans' documentation
+        // and your server key
+        return true; // Placeholder, replace with actual validation
+    }
+    
+    private function updateOrderStatus(Request $request)
+    {
+        $transactionStatus = $request->input('transaction_status');
+        $orderId = $request->input('order_id');
+    
+        $donation = Donation::where('order_id', $orderId)->first();
+    
+        if ($donation) {
+            switch ($transactionStatus) {
+                case 'capture':
+                    if ($request->input('payment_type') === 'credit_card') {
+                        if ($request->input('fraud_status') === 'challange') {
+                            $donation->setStatusPending();
+                        } else {
+                            $donation->setStatusSuccess();
+                        }
                     } else {
                         $donation->setStatusSuccess();
                     }
-                }
-            } else if ($transactionStatus == 'settlement') {
-                $donation->setStatusSuccess();
-            } else if ($transactionStatus == 'pending') {
-                $donation->setStatusPending();
-            } else if ($transactionStatus == 'deny') {
-                $donation->setStatusFailed();
-            } else if ($transactionStatus == 'expire') {
-                $donation->setStatusExpired();
-            } else if ($transactionStatus == 'cancel') {
-                $donation->setStatusFailed();
+                    break;
+                case 'settlement':
+                    $donation->setStatusSuccess();
+                    break;
+                case 'pending':
+                    $donation->setStatusPending();
+                    break;
+                case 'deny':
+                    $donation->setStatusFailed();
+                    break;
+                case 'expire':
+                    $donation->setStatusExpired();
+                    break;
+                case 'cancel':
+                    $donation->setStatusFailed();
+                    break;
             }
-
-        });
+            $donation->save();
+        }
+    }
+    
+    private function performAdditionalActions(Request $request)
+    {
+        // Perform actions based on transaction status (e.g., send emails, update inventory)
     }
 
 }
