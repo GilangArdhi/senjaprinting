@@ -35,7 +35,7 @@ class DonationController extends Controller
             // dd($request->idProduk);
             // dd($request->amount);
             $idProdukArray = explode(",", $request->idProduk);
-            $qtyArray = explode(",", $request->qty);
+            $qtyArray = explode(",", $request->grosir);
             /*$hargaArray = explode(",", $request->amount);*/
             $qtyvalue = 0;
             

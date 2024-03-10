@@ -119,6 +119,7 @@
           @endforeach
             @php
             $allIds = [];
+            $grosir = [];
             @endphp
 
           </div>
@@ -134,6 +135,7 @@
                   @foreach ($rincian as $details)
                     @csrf
                       @php
+                        $grosir[] = $details->qty;
                         $totalQty += $details->qty; // Menambahkan qty ke total
                         $allIds[] = $details->id; // Menambahkan ID ke array $allIds
                       @endphp
@@ -159,6 +161,7 @@
                       <input type="hidden" name="harga" id="harga" value="">
                       <input type="hidden" id="jmlBrg" name="jmlBrg"   value="{{$totalQty}}">
                       <input type="hidden" id="allId" name="allId" value="{{ implode(',', $allIds) }}">
+                      <input type="hidden" id="grosir" name="grosir" value="{{ implode(',', $grosir) }}">
                       <tr>
                         <td colspan="2" >
                           <div class="total-sum" style="display: flex; height: 100%; justify-content: center; align-items: center;">
@@ -232,6 +235,7 @@
             kdPos: $('input#kdPos').val(),
             amount: $('input#harga').val(),
             qty: $('input#jmlBrg').val(),
+            grosir: $('input#grosir').val(),
           },
           success: function (data) {
             snap.pay(data.snap_token, {

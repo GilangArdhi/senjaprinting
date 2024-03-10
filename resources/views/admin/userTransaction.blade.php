@@ -14,6 +14,20 @@
         <script nonce="24b1c56c-ca8d-418e-8098-7723180c6061">
             (function(w,d){!function(bg,bh,bi,bj){bg[bi]=bg[bi]||{};bg[bi].executed=[];bg.zaraz={deferred:[],listeners:[]};bg.zaraz.q=[];bg.zaraz._f=function(bk){return async function(){var bl=Array.prototype.slice.call(arguments);bg.zaraz.q.push({m:bk,a:bl}')}};for(const bm of["track","set","debug"])bg.zaraz[bm]=bg.zaraz._f(bm);bg.zaraz.init=()=>{var bn=bh.getElementsByTagName(bj)[0],bo=bh.createElement(bj),bp=bh.getElementsByTagName("title")[0];bp&&(bg[bi].t=bh.getElementsByTagName("title")[0].text);bg[bi].x=Math.random();bg[bi].w=bg.screen.width;bg[bi].h=bg.screen.height;bg[bi].j=bg.innerHeight;bg[bi].e=bg.innerWidth;bg[bi].l=bg.location.href;bg[bi].r=bh.referrer;bg[bi].k=bg.screen.colorDepth;bg[bi].n=bh.characterSet;bg[bi].o=(new Date).getTimezoneOffset();if(bg.dataLayer)for(const bt of Object.entries(Object.entries(dataLayer).reduce(((bu,bv)=>({...bu[1],...bv[1]})),{})))zaraz.set(bt[0],bt[1],{scope:"page"});bg[bi].q=[];for(;bg.zaraz.q.length;){const bw=bg.zaraz.q.shift();bg[bi].q.push(bw)}bo.defer=!0;for(const bx of[localStorage,sessionStorage])Object.keys(bx||{}).filter((bz=>bz.startsWith("_zaraz_"))).forEach((by=>{try{bg[bi]["z_"+by.slice(7)]=JSON.parse(bx.getItem(by))}catch{bg[bi]["z_"+by.slice(7)]=bx.getItem(by')}}));bo.referrerPolicy="origin";bo.src="/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(bg[bi])));bn.parentNode.insertBefore(bo,bn)};["complete","interactive"].includes(bh.readyState)?zaraz.init():bg.addEventListener("DOMContentLoaded",zaraz.init)}(w,d,"zarazData","script");})(window,document);
         </script>
+        <style>
+            .failed {
+                color: red !important;
+                font-weight: bold;
+            }
+            .success {
+                color: green !important;
+                font-weight: bold;
+            }
+            .process {
+                color: blue !important;
+                font-weight: bold;
+            }
+        </style>
     </head>
     <body class="hold-transition sidebar-mini sidebar-collapse">
         <div class="wrapper">
@@ -145,25 +159,25 @@
                                                 <!-- <td><img src="{asset('storage/assets/images/'. $produk->gambar)}}" class="w-50" style="display: block; margin: 0 auto;"></td> -->
                                                 <td>{{$produk -> qty}}</td>
                                                 <td>{{$produk -> amount}}</td>
-                                                <td>{{$produk -> status}}</td>
+                                                <td class="status-cell">{{$produk -> status}}</td>
 
                                                 <!-- <td width="150">
                                                     <div class="btn-group d-flex justify-content-around gap-4">
                                                         <div class="btn-group d-flex justify-content-around gap-4"> -->
                                                             <!-- Button trigger modal -->
-                                                            <!-- <form action="{{ route('mengedit', ['id' => $produk->id]) }}" method="GET">
+                                                            <!-- <form action="{ { route('mengedit', ['id' => $produk->id]) }" method="GET">
                                                                 @csrf
-                                                                <button type="submit" name="btnSubmit" value="{{$produk->id}}" class="btn btn-secondary btn-sm">
+                                                                <button type="submit" name="btnSubmit" value="{ {$produk->id} }" class="btn btn-secondary btn-sm">
                                                                     Edit
                                                                 </button>
                                                             </form> -->
-                                                            <!-- <button type="button" name="btnSubmit" value="{{$produk->id}}" class="btn btn-secondary btn-sm"
-                                                                data-bs-toggle="modal" data-bs-target="#editModal-{{$produk->id}}">
+                                                            <!-- <button type="button" name="btnSubmit" value="{ {$produk->id} }" class="btn btn-secondary btn-sm"
+                                                                data-bs-toggle="modal" data-bs-target="#editModal-{ {$produk->id}}">
                                                                 Edit
                                                             </button> -->
 
                                                             <!-- The Modal -->
-                                                            <!-- <div class="modal fade" id="editModal-{{$produk->id}}">
+                                                            <!-- <div class="modal fade" id="editModal-{ {$produk->id}}">
                                                                 <div class="modal-dialog">
                                                                     <div class="modal-content">
 
@@ -177,19 +191,19 @@
                                                                         < !-- Modal body - ->
                                                                         <div class="modal-body">
                                                                         < !-- < ?php echo form_open('Jadwal/editJadwal')?> - ->
-                                                                            <Form action="{{ url('edit') }}" method="POST">
+                                                                            <Form action="{ { url('edit') }}" method="POST">
                                                                                 @csrf
                                                                                 <div class="form-group">
                                                                                 <label for="idProduk" class="form-label">Id Produk</label>
-                                                                                    <input type="text" class="form-control" id="idProduk" value="{{$produk->id}}" name="idProduk" readonly>
+                                                                                    <input type="text" class="form-control" id="idProduk" value="{ {$produk->id}}" name="idProduk" readonly>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="nama" class="form-label">Nama Produk</label>
-                                                                                    <input type="text" class="form-control" id="nama" value="{{$produk -> judul}}" name="nama">
+                                                                                    <input type="text" class="form-control" id="nama" value="{ {$produk -> judul}}" name="nama">
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="gambar1" class="form-label">Gambar Utama</label>
-                                                                                    <input type="file" class="form-control" id="gambar1" value="{{$produk -> gambar}}" name="gambar1">
+                                                                                    <input type="file" class="form-control" id="gambar1" value="{ {$produk -> gambar}}" name="gambar1">
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="gambar2" class="form-label">Gambar 1</label>
@@ -205,17 +219,17 @@
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="ukuran" class="form-label">Ukuran</label>
-                                                                                    <input type="text" class="form-control" id="ukuran" value="{{$produk -> ukuran}}" name="ukuran">
+                                                                                    <input type="text" class="form-control" id="ukuran" value="{ {$produk -> ukuran}}" name="ukuran">
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="deskripsi" class="form-label">Ukuran</label>
-                                                                                    <textarea type="text" class="form-control" rows="4" id="deskripsi" name="deskripsi">{{$produk -> deskripsi}}</textarea>
+                                                                                    <textarea type="text" class="form-control" rows="4" id="deskripsi" name="deskripsi">{ {$produk -> deskripsi}}</textarea>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="harga" class="form-label">Harga</label>
-                                                                                    <input type="number" class="form-control" id="harga" value="{{$produk->harga}}" name="harga">
+                                                                                    <input type="number" class="form-control" id="harga" value="{ {$produk->harga}}" name="harga">
                                                                                 </div>
-                                                                                    <button type="submit" class="btn btn-primary" name="btnKd" value="{{$produk->id}}">Submit</button>
+                                                                                    <button type="submit" class="btn btn-primary" name="btnKd" value="{ {$produk->id}}">Submit</button>
                                                                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                                                                             </Form>
                                                                         </div>
@@ -223,9 +237,9 @@
                                                                 </div>
                                                             </div> -->
                                                         <!-- </div>
-                                                        <Form action="{{ url('delete') }}" method="POST">
+                                                        <Form action="{ { url('delete') }}" method="POST">
                                                             @csrf
-                                                            <button type="submit" value="{{$produk->id}}"
+                                                            <button type="submit" value="{ {$produk->id}}"
                                                                 class="btn btn-danger btn-sm" name="idProduk"
                                                                 onclick="return confirm('Apakah anda yakin menghapus data?')">Delete</button>
                                                         </Form>
@@ -294,7 +308,32 @@
 
             <aside class="control-sidebar control-sidebar-dark"></aside>
         </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var statusCells = document.getElementsByClassName("status-cell");
 
+                for (var i = 0; i < statusCells.length; i++) {
+                    var status = statusCells[i].innerText.trim().toLowerCase();
+                    console.log("Status:", status);
+
+                    switch (status) {
+                        case "gagal":
+                        case "kadaluwarsa":
+                            statusCells[i].classList.add("failed");
+                            break;
+                        case "sukses":
+                            statusCells[i].classList.add("success");
+                            break;
+                        case "proses":
+                            statusCells[i].classList.add("process");
+                            break;
+                        default:
+                            // default color or class if status is not recognized
+                            break;
+                    }
+                }
+            });
+        </script>
         <!-- <script src="{{asset('assets/tempad/plugins/jquery/jquery.min.js')}}"></script> -->
 
         <script src="{{asset('assets/tempad/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
