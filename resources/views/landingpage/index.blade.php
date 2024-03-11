@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     @include('script_head')
     <style>
       .floating-button {
@@ -119,7 +120,42 @@
         margin-bottom: 15px; /* Tambahkan spasi antara card */
         /* Gaya lain yang sesuai untuk ponsel */
       }
+
+      
 }
+.btn-lihat{
+        background-color: orange; 
+        color: white; 
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer; 
+        transition: background-color 0.3s ease; 
+        border-radius: 20px;
+      }
+
+      .btn-lihat:hover {
+        background-color: white; 
+        color: orange; 
+      }
+
+      .card {
+        
+        opacity: 0; 
+        transition: opacity 1s ease-in-out; 
+      }
+      .card:hover {
+        transform: scale(1.1); 
+        transition: transform 0.2s ease-in-out; 
+      }
+  
+      .card.is-visible {
+        opacity: 1; 
+      }
+
+      .card:hover .card-content {
+        box-shadow: 0 0 10px rgba(0,0,0,0.2); 
+      }
     </style>
   </head>
   <body>
@@ -232,6 +268,9 @@
                     <a href="#" onclick="event.preventDefault(); document.getElementById('hoodie').submit();"><h3>HOODIE</h3></a>
                     <p>HOODIE Custom PESAN SATUAN Desain Suka Suka, Full Colour Sablon DTF.</p>
                     <input type="hidden" name="kategori" value="hoodie">
+                    <button>
+                    <a href="#" type="button" class="btn-lihat mt-2" onclick="event.preventDefault(); document.getElementById('hoodie').submit();">Lihat</a>
+                    </button>
                   </div>
                 </form>
               </div>
@@ -242,6 +281,9 @@
                     <a onclick="event.preventDefault(); document.getElementById('kaos').submit();"><h3>KAOS</h3></a>
                     <p>KAOS Custom PESAN SATUAN Desain Suka Suka, Full Colour Sablon DTF.</p>
                     <input type="hidden" name="kategori" value="kaos">
+                    <button>
+                    <a href="#" type="button" class="btn-lihat mt-2" onclick="event.preventDefault(); document.getElementById('kaos').submit();">Lihat</a>
+                    </button>
                   </div>
                 </form>
               </div>
@@ -252,6 +294,9 @@
                     <a onclick="event.preventDefault(); document.getElementById('sweater').submit();"><h3>SWEATER</h3></a>
                     <p>SWEATER Custom PESAN SATUAN Desain Suka Suka, Full Colour Sablon DTF</p>
                     <input type="hidden" name="kategori" value="sweater">
+                    <button>
+                    <a href="#" type="button" class="btn-lihat mt-2" onclick="event.preventDefault(); document.getElementById('sweater').submit();">Lihat</a>
+                    </button>
                   </div>
                 </form>
               </div>
@@ -264,6 +309,9 @@
                     <a onclick="event.preventDefault(); document.getElementById('pdh_pdl').submit();"><h3>PDH/PDL</h3></a>
                     <p>Workshit PDH/PDL, Bahan Premium Desain Custom</p>
                     <input type="hidden" name="kategori" value="pdh_pdl">
+                    <button>
+                    <a href="#" type="button" class="btn-lihat mt-2" onclick="event.preventDefault(); document.getElementById('pdh_pdl').submit();">Lihat</a>
+                    </button>
                   </div>
                 </form>
               </div>
@@ -274,6 +322,9 @@
                     <a onclick="event.preventDefault(); document.getElementById('polo').submit();"><h3>POLO</h3></a>
                     <p>Elegan Polo Shirt, Bahan Premium Desain Custom</p>
                     <input type="hidden" name="kategori" value="polo">
+                    <button>
+                    <a href="#" type="button" class="btn-lihat mt-2" onclick="event.preventDefault(); document.getElementById('polo').submit();">Lihat</a>
+                    </button>
                   </div>
                 </form>
               </div>
@@ -284,6 +335,9 @@
                     <a onclick="event.preventDefault(); document.getElementById('tote_bag').submit();"><h3>TOTE BAG</h3></a>
                     <p> TOTE BAGE Custom, Bahan CANVAS Full Colour, Fit Style</p>
                     <input type="hidden" name="kategori" value="tote_bag">
+                    <button>
+                    <a href="#" type="button" class="btn-lihat mt-2" onclick="event.preventDefault(); document.getElementById('tote_bag').submit();">Lihat</a>
+                    </button>
                   </div>
                 </form>
               </div>
@@ -296,6 +350,9 @@
                     <a onclick="event.preventDefault(); document.getElementById('topi').submit();"><h3>Topi</h3></a>
                     <p>Topi Custom, All Size Desain Suka-suka</p>
                     <input type="hidden" name="kategori" value="topi">
+                    <button>
+                    <a href="#" type="button" class="btn-lihat mt-2" onclick="event.preventDefault(); document.getElementById('topi').submit();">Lihat</a>
+                    </button>
                   </div>
                 </form>
               </div>
@@ -306,6 +363,9 @@
                     <a onclick="event.preventDefault(); document.getElementById('jersey').submit();"><h3>JERSEY</h3></a>
                     <p> JERSEY Custom, Full Colour, Bahan Nyerap Keringat.</p>
                     <input type="hidden" name="kategori" value="jersey">
+                    <button>
+                    <a href="#" type="button" class="btn-lihat mt-2" onclick="event.preventDefault(); document.getElementById('jersey').submit();">Lihat</a>
+                    </button>
                   </div>
                 </form>
               </div>
@@ -316,6 +376,9 @@
                     <a onclick="event.preventDefault(); document.getElementById('kaos').submit();"><h3>KAOS</h3></a>
                     <p>KAOS Custom PESAN SATUAN Desain Suka Suka, Full Colour Sablon DTF.</p>
                     <input type="hidden" name="kategori" value="kaos">
+                    <button>
+                    <a href="#" type="button" class="btn-lihat mt-2" onclick="event.preventDefault(); document.getElementById('kaos').submit();">Lihat</a>
+                    </button>
                   </div>
                 </form>
               </div>
@@ -378,8 +441,8 @@
         <div class="spacing">
           <h1 class="section-title--default title--center">Alasan Anda Memilih Kami</h1>
           <div class="items-4-grid-container">
-            <div class="service__grid-item">
-              <div class="service-item__icon--lg">
+            <div class="service__grid-item  ">
+              <div class="service-item__icon--lg  ">
                 <svg xmlns="http://www.w3.org/2000/svg" width="36.777" height="21.718" viewBox="0 0 36.777 21.718">
                   <path d="M47.425,30.727l-1.7-3.949a3.9,3.9,0,0,0-3.6-2.361H39.373V23.41a1.512,1.512,0,0,0-1.51-1.51h-19.2a1,1,0,0,0-1.007,1.007,1.025,1.025,0,0,0,1.007,1.007H37.282v7.433a1.652,1.652,0,0,0,1.665,1.665h6.7v4.684a.347.347,0,0,1-.348.348H44.057a3.725,3.725,0,0,0-3.213-1.858,3.809,3.809,0,0,0-3.213,1.858H27.294a3.725,3.725,0,0,0-3.213-1.858,3.809,3.809,0,0,0-3.213,1.858H17.307a1.007,1.007,0,1,0,0,2.013h3.058a3.72,3.72,0,0,0,7.433,0h9.33a3.72,3.72,0,0,0,7.433,0h.813a2.371,2.371,0,0,0,2.361-2.361v-5.42A4.414,4.414,0,0,0,47.425,30.727ZM24.081,41.6a1.7,1.7,0,1,1,1.7-1.7A1.718,1.718,0,0,1,24.081,41.6Zm16.763,0a1.7,1.7,0,1,1,1.7-1.7A1.718,1.718,0,0,1,40.844,41.6Zm-1.51-15.137h2.749a1.814,1.814,0,0,1,1.7,1.123L45.257,31H39.334Z" transform="translate(-10.958 -21.9)"></path>
                   <path d="M13.307,34.813H20.43a1.007,1.007,0,1,0,0-2.013H13.307A1,1,0,0,0,12.3,33.807,1.025,1.025,0,0,0,13.307,34.813Z" transform="translate(-8.506 -28.58)"></path>
@@ -466,6 +529,9 @@
     <!--div class="container"> -->
       @include('footer')
     <!-- </div> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <script defer src="scripts/product-cards-slider.js"></script>
     <script>
       let slideIndex = 0;
@@ -490,6 +556,24 @@
 
         setTimeout(showSlides, 2000); // Ganti gambar setiap 2 detik
       }
+    </script>
+    <script>
+
+const cards = document.querySelectorAll('.card');
+
+const observer = new IntersectionObserver(entri => {
+  entri.forEach(entri => {
+    if (entri.isIntersecting) {
+      entri.target.classList.add('is-visible');
+    } else {
+      entri.target.classList.remove('is-visible');
+    }
+  });
+});
+
+cards.forEach(card => {
+  observer.observe(card);
+});
     </script>
   </body>
 </html>
