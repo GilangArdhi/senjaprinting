@@ -33,10 +33,14 @@ class AuthController extends Controller
             'nama' => 'required',
             'username' => 'required',
             'password' => 'required|min:6',
-            'email' => 'required|email',
+            'email' => ['required','email','unique:users'],
             'alamat' => 'required',
-            'no_hp' => 'required',
+            'no_hp' => ['required','unique:users'],
             // Tambahkan aturan validasi lain sesuai kebutuhan Anda.
+        ],[
+            '*.required' => 'Kolom :attribute wajib diisi.',
+            'email.unique' => 'Email sudah terdaftar. Silakan gunakan email lain.',
+            'phone.unique' => 'Nomor handphone sudah terdaftar. Silakan gunakan nomor handphone lain.',
         ]);
     
         if ($validator->fails()) {

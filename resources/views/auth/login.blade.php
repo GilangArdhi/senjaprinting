@@ -11,8 +11,8 @@
             <path d="M5.794,0,.963,4.835,0,5.8l.963.963L5.794,11.59l.963-.961-4.15-4.15H13.336V5.118H2.606L6.757.965Z"></path>
           </svg>Back to store</a>
         <div class="auth-block--center">
-          <h1 class="auth-title">Log in</h1>
-          <p class="auth-paragraph">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p>
+          <h1 class="auth-title">Masuk</h1>
+          <p class="auth-paragraph">Masukkan akun dan password yang sudah didaftarkan sebelumnya.</p>
           @if ($errors->any())
             <div class="alert alert-danger">
               <ul>
@@ -45,7 +45,7 @@
                     <path d="M11.763.25l-.876.929-6.1,6.473L2.955,5.821l-.9-.9-1.8,1.8.9.9L3.91,10.384l.929.929.9-.955,7-7.428L13.62,2Z" transform="translate(-0.249 -0.25)" fill="#fff"></path>
                   </svg></span>
               </label> -->
-              <a class="auth-link" href="#" style="margin: 10px">Forgot password?</a>
+              <a class="auth-link" href="#" style="margin: 10px">Lupa Kata Sandi?</a>
             </div>
             <!-- <div class="auth-row-2">
               <button class="btn-social-media btn-fb">
@@ -68,13 +68,13 @@
                 </svg><span>Gmail</span>
               </button>
             </div> -->
-            <button type="submit" class="btn btn--primary auth-btn">Sign in</button>
-            <div class="auth-info">Not a member yet?<a class="auth-link--dark" href="daftar">Sign up</a></div>
+            <button type="submit" class="btn btn--primary auth-btn">Masuk</button>
+            <div class="auth-info">Belum Punya Akun?<a class="auth-link--dark" href="daftar">Daftar</a></div>
           </form>
         </div>
       </div>
     </div>
-    <div class="container spacing">
+    <!-- <div class="container spacing">
       <div class="newsletter">
         <div class="newsletter__content">
           <p class="newsletter__title">Subscribe to our newsletter and receive exclusive offers every week</p>
@@ -84,7 +84,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="container">
       @include('footer')
     </div>
