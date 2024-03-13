@@ -7,7 +7,7 @@
               </svg><span class="navbar__logo-txt">Senja Printing</span></a></div>
           <ul class="navbar__links" id="menu">
           <li class="navbar__link-item" id="men">
-              <div class="navbar__link">Men</div>
+              <!-- <div class="navbar__link">Men</div>
               <div class="navbar-level-2" id="menuMen">
                 <div class="container"> 
                   <div class="flex--center">
@@ -78,7 +78,7 @@
               </div> -->
             </li>
             <li class="navbar__link-item" id="women">
-              <div class="navbar__link">Women</div>
+              <!-- <div class="navbar__link">Women</div>
               <div class="navbar-level-2" id="menuWomen">
                 <div class="container"> 
                   <div class="flex--center">
@@ -149,7 +149,7 @@
               </div> -->
             </li>
             <li class="navbar__link-item" id="kids">
-              <div class="navbar__link">Kids</div>
+              <!-- <div class="navbar__link">Kids</div>
               <div class="navbar-level-2" id="menuKids">
                 <div class="container"> 
                   <div class="flex--center">
@@ -263,8 +263,9 @@
                 </svg></a></li>
             <!-- profil -->
                 <li class="navbar__utility jarak" id="avatar"><a href="/logout">
-                <svg class="fill-white" xmlns="http://www.w3.org/2000/svg" width="19" viewBox="0 0 19 19">
-                  <path d="M23.144,19.823l-4.2-1.723a.594.594,0,0,1-.375-.548V16.57a.557.557,0,0,1,.119-.349,8.265,8.265,0,0,0,1.721-5.03C20.41,8.086,18.437,6,15.5,6s-4.91,2.086-4.91,5.192a8.266,8.266,0,0,0,1.721,5.03.557.557,0,0,1,.119.348v.981a.594.594,0,0,1-.375.548l-4.2,1.723A2.97,2.97,0,0,0,6,22.575v1.634A.792.792,0,0,0,6.792,25H24.208A.792.792,0,0,0,25,24.208V22.575A2.97,2.97,0,0,0,23.144,19.823Zm.273,3.594H7.583v-.842a1.392,1.392,0,0,1,.874-1.287l4.2-1.723a2.172,2.172,0,0,0,1.357-2.013V16.57a2.145,2.145,0,0,0-.468-1.34,6.729,6.729,0,0,1-1.372-4.038c0-2.66,1.718-3.608,3.327-3.608s3.327.948,3.327,3.608a6.729,6.729,0,0,1-1.372,4.038,2.146,2.146,0,0,0-.468,1.34v.981a2.172,2.172,0,0,0,1.357,2.013l4.2,1.723a1.392,1.392,0,0,1,.874,1.287Z" transform="translate(-6 -6)"></path>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-door-open" viewBox="0 0 16 16">
+                  <path d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1"/>
+                  <path d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117M11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5M4 1.934V15h6V1.077z"/>
                 </svg></a></li>
             <li class="navbar__utility menu" id="menuIcon">
               <svg class="fill-white" xmlns="http://www.w3.org/2000/svg" width="22" height="15" viewBox="0 0 22 15">
