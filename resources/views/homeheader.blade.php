@@ -7,7 +7,7 @@
               </svg><span class="navbar__logo-txt">Senja Printing</span></a></div>
           <ul class="navbar__links" id="menu">
           <li class="navbar__link-item" id="men">
-              <!-- <div class="navbar__link">Men</div>
+              <div class="navbar__link">Men</div>
               <div class="navbar-level-2" id="menuMen">
                 <div class="container"> 
                   <div class="flex--center">
@@ -78,7 +78,7 @@
               </div> -->
             </li>
             <li class="navbar__link-item" id="women">
-              <!-- <div class="navbar__link">Women</div>
+              <div class="navbar__link">Women</div>
               <div class="navbar-level-2" id="menuWomen">
                 <div class="container"> 
                   <div class="flex--center">
@@ -149,7 +149,7 @@
               </div> -->
             </li>
             <li class="navbar__link-item" id="kids">
-              <!-- <div class="navbar__link">Kids</div>
+              <div class="navbar__link">Kids</div>
               <div class="navbar-level-2" id="menuKids">
                 <div class="container"> 
                   <div class="flex--center">
