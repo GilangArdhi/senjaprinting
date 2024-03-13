@@ -497,6 +497,21 @@ button{
             </div>
           </div>
         </div>
+        <div class="spacing">
+          <h1 class="section-title--default title--center">Telah Dipercaya Oleh 5 Klien</h1>
+          <ul class="image-list">
+            <li class="card-list" style="margin-left: auto; margin-right: auto;">
+              <img src="{{asset('assets/images/logo-amikom.png')}}" style="width: 173px; heigth: 147px;" alt="logo-amikom">
+              <img src="{{asset('assets/images/logo-ABP.png')}}" style="width: 323px; heigth: 147px;" alt="logo-ABP">
+              <img src="{{asset('assets/images/logo-PMW.png')}}" style="width: 320px; heigth: 147px;" alt="logo-PMW">
+              <img src="{{asset('assets/images/hipmi-logo.png')}}" style="width: 173px; heigth: 147px;" alt="logo-hipmi">
+              <img src="{{asset('assets/images/logo-DML.png')}}" style="width: 173px; heigth: 147px;" alt="logo-DML">
+            </li>
+          </ul>
+        </div>
+        <div class="spacing">
+          <img src="{{asset('assets/images/gambar-kinerja.jpeg')}}" alt="kinerja terkini">
+        </div>
         <!-- <div class="spacing" >
           <h1 class="section-title--default title--center">Produk Terbaru Kami</h1>
           <div class="products-grid-container">

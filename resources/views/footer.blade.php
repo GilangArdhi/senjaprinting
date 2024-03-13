@@ -13,7 +13,7 @@
       <div class="container" style="background-color: #EBA51A">
       <footer class="spacing" style="color: #FFFFFF">
             <div class="footer">
-              <div class="footer__group-links" style="width: 188px; height: 125px;">  
+              <div class="footer__group-links" style="width: 150px; height: 125px;">  
                 <img src="{{asset('storage/assets/images/logoSP.png')}}" alt="Logo SP">
                 <ul>
                   <li class="footer__link" style="font-size: 20px; text-align: center;"><a href="#">Senja Printing</a></li>
@@ -31,27 +31,27 @@
                   <li class="footer__link"><a href="#">Site feedback</a></li>
                 </ul> -->
               <!-- </div> -->
-              <div class="footer__group-links">
-                <h3 class="footer__title">Informasi</h3>
+              <div class="footer__group-links" style="font-size: 16px">
+                <h3 class="footer__title" style="font-size: 18px">Informasi</h3>
                 <ul>
-                  <li class="footer__link"><a href="#">Tentang Kami</a></li>
-                  <li class="footer__link"><a href="#">Produk</a></li>
-                  <li class="footer__link"><a href="#">Portofolio</a></li>
-                  <li class="footer__link"><a href="#">Testimonial</a></li>
+                  <li class="footer__link" style="font-size: 15px"><a href="#">Tentang Kami</a></li>
+                  <li class="footer__link" style="font-size: 15px"><a href="#">Produk</a></li>
+                  <li class="footer__link" style="font-size: 15px"><a href="#">Portofolio</a></li>
+                  <li class="footer__link" style="font-size: 15px"><a href="#">Testimonial</a></li>
                 </ul>
               </div>
-              <address class="footer__group-links">
-                <div class="footer__title">CONTACT</div>
+              <address class="footer__group-links" style="font-size: 16px">
+                <div class="footer__title" style="font-size: 18px">CONTACT</div>
                 <ul>
-                  <li class="footer__info">senjaprinting3@gmail.com</li>
-                  <li class="footer__info">@senjaprintingg</li>
-                  <li class="footer__info">+62 812 2861 5885</li>
+                  <li class="footer__info" style="font-size: 15px">senjaprinting3@gmail.com</li>
+                  <li class="footer__info" style="font-size: 15px">@senjaprintingg</li>
+                  <li class="footer__info" style="font-size: 15px">+62 812 2861 5885</li>
                 </ul>
               </address>
-              <div class="footer__group-links" style="width: 300px">
-                <h3 class="footer__title">OPERATIONAL OFFICE</h3>
+              <div class="footer__group-links" style="width: 420px">
+                <h3 class="footer__title" style="font-size: 18px">OPERATIONAL OFFICE</h3>
                 <ul>
-                  <li class="footer__link"><a href="#">Jl. Nusa Indah No.rt 02, RW.14, Dero, Condongcatur, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55283</a></li>
+                  <li class="footer__link" style="font-size: 15px"><a href="#">Jl. Nusa Indah No.rt 02, RW.14, Dero, Condongcatur, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55283</a></li>
                   
                 </ul>
               </div>
