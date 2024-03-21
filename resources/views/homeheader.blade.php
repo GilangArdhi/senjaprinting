@@ -7,79 +7,133 @@
               </svg><span class="navbar__logo-txt">Senja Printing</span></a></div>
           <ul class="navbar__links" id="menu">
           <li class="navbar__link-item" id="men">
-              <!-- <div class="navbar__link">Men</div>
+              <div class="navbar__link">Produk</div>
               <div class="navbar-level-2" id="menuMen">
                 <div class="container"> 
                   <div class="flex--center">
                     <div class="main-list">
                       <ul>
-                        <li class="main-list__item"><a href="#">Sale</a></li>
+                        <!-- <li class="main-list__item"><a href="#">Sale</a></li>
                         <li class="main-list__item"><a href="#">Bestsellers</a></li>
-                        <li class="main-list__item"><a href="#">Latest Arrivals</a></li>
+                        <li class="main-list__item"><a href="#">Latest Arrivals</a></li> -->
                       </ul>
                     </div>
                     <div class="list-group">
                       <div class="list-category">
-                        <h3 class="list-category__title">Shoes</h3>
+                        <h3 class="list-category__title" style="color: #EBA51A;">Trend</h3>
                         <ul>
-                          <li class="list-category__item"><a href="#">Lifestyle</a></li>
-                          <li class="list-category__item"><a href="#">Running</a></li>
-                          <li class="list-category__item"><a href="#">Soccer</a></li>
+                          <li class="list-category__item">
+                            <form action="{{ url('searchCatalog') }}" id="hoodie">
+                              <a onclick="event.preventDefault(); document.getElementById('hoodie').submit();">Hoodie</a>
+                            </form>
+                          </li>
+                          <li class="list-category__item">
+                            <form action="{{ url('searchCatalog') }}" id="kaos">
+                              <a onclick="event.preventDefault(); document.getElementById('kaos').submit();">Kaos</a>
+                            </form>
+                          </li>
+                          <li class="list-category__item">
+                            <form action="{{ url('searchCatalog') }}" id="sweater">
+                              <a onclick="event.preventDefault(); document.getElementById('sweater').submit();">Sweater</a>
+                            </form>
+                          </li>
+                          <li class="list-category__item">
+                            <form action="{{ url('searchCatalog') }}" id="tote_bag">
+                              <a onclick="event.preventDefault(); document.getElementById('tote_bag').submit();">Tote Bage</a>
+                            </form>
+                          </li>
                         </ul>
                       </div>
                       <div class="list-category">
-                        <h3 class="list-category__title">Bags</h3>
+                        <!-- <h3 class="list-category__title">Bags</h3>
                         <ul>
                           <li class="list-category__item"><a href="#">Backpacks</a></li>
                           <li class="list-category__item"><a href="#">Messenger Bags</a></li>
                           <li class="list-category__item"><a href="#">Luggage</a></li>
-                        </ul>
+                        </ul> -->
                       </div>
                     </div>
                     <div class="list-group">
                       <div class="list-category">
-                        <h3 class="list-category__title">Clothing</h3>
+                        <h3 class="list-category__title" style="color: #EBA51A;">Seri</h3>
                         <ul>
-                          <li class="list-category__item"><a href="#">Pants</a></li>
-                          <li class="list-category__item"><a href="#">Hoodies & Sweatshirts</a></li>
-                          <li class="list-category__item"><a href="#">Vests</a></li>
+                          <li class="list-category__item">
+                            <form action="{{ url('searchCatalog') }}" id="hoodie">
+                              <a onclick="event.preventDefault(); document.getElementById('hoodie').submit();">Hoodie</a>
+                            </form>
+                          </li>
+                          <li class="list-category__item">
+                            <form action="{{ url('searchCatalog') }}" id="kaos">
+                              <a onclick="event.preventDefault(); document.getElementById('kaos').submit();">Kaos</a>
+                            </form>
+                          </li>
+                          <li class="list-category__item">
+                            <form action="{{ url('searchCatalog') }}" id="sweater">
+                              <a onclick="event.preventDefault(); document.getElementById('sweater').submit();">Sweater</a>
+                            </form>
+                          </li>
+                          <li class="list-category__item">
+                            <form action="{{ url('searchCatalog') }}" id="tote_bag">
+                              <a onclick="event.preventDefault(); document.getElementById('tote_bag').submit();">Tote Bage</a>
+                            </form>
+                          </li>
                         </ul>
                       </div>
                       <div class="list-category">
-                        <h3 class="list-category__title">Outerwear</h3>
+                        <!-- <h3 class="list-category__title">Outerwear</h3>
                         <ul>
                           <li class="list-category__item"><a href="#">Parkas</a></li>
                           <li class="list-category__item"><a href="#">Jackets</a></li>
                           <li class="list-category__item"><a href="#">Coats</a></li>
-                        </ul>
+                        </ul> -->
                       </div>
                     </div>
                     <div class="list-group">
                       <div class="list-category">
-                        <h3 class="list-category__title">Accesorries</h3>
+                        <!-- <h3 class="list-category__title">Accesorries</h3> -->
+                        <h3 class="list-category__title"></h3>
                         <ul>
-                          <li class="list-category__item"><a href="#">Glasses</a></li>
-                          <li class="list-category__item"><a href="#">Caps & Hats</a></li>
-                          <li class="list-category__item"><a href="#">Watches</a></li>
+                          <li class="list-category__item">
+                            <form action="{{ url('searchCatalog') }}" id="polo">
+                              <a onclick="event.preventDefault(); document.getElementById('polo').submit();">Polo</a>
+                            </form>
+                          </li>
+                          <li class="list-category__item">
+                            <form action="{{ url('searchCatalog') }}" id="pdh_pdl">
+                              <a onclick="event.preventDefault(); document.getElementById('pdh_pdl').submit();">PDH/PDL</a>
+                            </form>
+                          </li>
+                          <li class="list-category__item">
+                            <form action="{{ url('searchCatalog') }}" id="topi">
+                              <a onclick="event.preventDefault(); document.getElementById('topi').submit();">Topi</a>
+                            </form>
+                          </li>
+                          <li class="list-category__item">
+                            <form action="{{ url('searchCatalog') }}" id="jersey">
+                              <a onclick="event.preventDefault(); document.getElementById('jersey').submit();">Jersey</a>
+                            </form>
+                          </li>
                         </ul>
                       </div>
                       <div class="list-category">
-                        <h3 class="list-category__title">Collections</h3>
+                        <!-- <h3 class="list-category__title">Collections</h3>
                         <ul>
                           <li class="list-category__item"><a href="#">Originals</a></li>
                           <li class="list-category__item"><a href="#">New Casual</a></li>
                           <li class="list-category__item"><a href="#">Reviving Retro</a></li>
-                        </ul>
+                        </ul> -->
                       </div>
                     </div>
-                    <div class="list-group-ad"><a class="list-group-ad__link" href="#"><img src="./images/menu-ad1.png" alt="ad1"/></a><a class="list-group-ad__link" href="#"><img src="./images/menu-ad2.png" alt="ad2"/></a><a class="list-group-ad__link" href="#"><img src="./images/menu-ad3.png" alt="ad3"/></a></div>
+                    <div class="list-group-ad">
+                      <!-- <a class="list-group-ad__link" href="#"><img src="./images/menu-ad1.png" alt="ad1"/></a><a class="list-group-ad__link" href="#"><img src="./images/menu-ad2.png" alt="ad2"/></a><a class="list-group-ad__link" href="#"><img src="./images/menu-ad3.png" alt="ad3"/></a> -->
+                    </div>
                   </div>
                 </div>
-              </div> -->
+              </div>
             </li>
             <li class="navbar__link-item" id="women">
-              <!-- <div class="navbar__link">Women</div>
-              <div class="navbar-level-2" id="menuWomen">
+              <a href="https://www.instagram.com/senjaprintingg/"><div class="navbar__link">Portofolio</div></a>
+              <!-- <div class="navbar-level-2" id="menuWomen">
                 <div class="container"> 
                   <div class="flex--center">
                     <div class="main-list">
@@ -91,7 +145,7 @@
                     </div>
                     <div class="list-group">
                       <div class="list-category">
-                        <h3 class="list-category__title">Shoes</h3>
+                        <h3 class="list-category__title">Tentang Kami</h3>
                         <ul>
                           <li class="list-category__item"><a href="#">Lifestyle</a></li>
                           <li class="list-category__item"><a href="#">Running</a></li>
@@ -149,8 +203,8 @@
               </div> -->
             </li>
             <li class="navbar__link-item" id="kids">
-              <!-- <div class="navbar__link">Kids</div>
-              <div class="navbar-level-2" id="menuKids">
+              <div class="navbar__link"><a href="tentangkami">Tentang Kami</a></div>
+              <!-- <div class="navbar-level-2" id="menuKids">
                 <div class="container"> 
                   <div class="flex--center">
                     <div class="main-list">

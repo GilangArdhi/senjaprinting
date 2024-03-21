@@ -28,6 +28,7 @@ Route::get('detail', [LandingPage::class, 'detail'])->name('detail');
 Route::get('/product/search', [LandingPage::class, 'search'])->name('product.search');
 Route::get('searchCatalog', [LandingPage::class, 'searchByCategory']);
 Route::get('/products/filter', [LandingPage::class, 'filterBySize'])->name('products.filter');
+Route::get('tentangkami',[LandingPage::class, 'AboutUs']);
 // Rute kustom untuk tampilan verifikasi
 // Route::get('/verify-email', [VerificationController::class,'show'])->name('verification.notice');
 // Route::get('/resend-verification', [VerificationController::class,'resend'])->name('verification.resend');

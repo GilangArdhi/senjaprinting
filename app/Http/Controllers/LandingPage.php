@@ -205,4 +205,8 @@ class LandingPage extends Controller
 
         return view('landingpage.search', ['sablon' => $sablon]);
     }
+
+    public function AboutUs(){
+        return view('landingpage.TentangKami');
+    }
 }
