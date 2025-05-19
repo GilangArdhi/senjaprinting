@@ -67,7 +67,7 @@
 
 > *(Tambahkan gambar jika ada, contoh: dashboard, form pemesanan, laporan)*  
 > Contoh:  
-> ![Dashboard](screenshots/screenshoot dashboard.png)
+> ![Dashboard](./screenshoot/screenshoot dashboard.png)
 
 ## 👤 Peran Saya
 
@@ -83,11 +83,4 @@ Saya bertanggung jawab sebagai:
 ## 📬 Kontak
 
 Jika ingin mengetahui lebih lanjut, silakan hubungi saya melalui GitHub atau email.
-
----
-
-Kamu juga bisa menambahkan badge, status deployment, atau demo online jika ada.
-
----
-
-Kalau kamu mau, aku juga bisa bantu menyesuaikan isinya lebih lanjut berdasarkan fitur dan struktur asli proyekmu. Mau saya bantu cek struktur kodenya dulu?
+email : gilangarsaputra25@gmail.com
