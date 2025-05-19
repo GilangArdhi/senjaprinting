@@ -16,8 +16,6 @@ return new class extends Migration
             $table->string('user_id')->nullable(); // Sesuai dengan data sesi
             $table->string('page_visited');
             $table->timestamp('visit_start')->nullable();
-            $table->timestamp('updated_at')->nullable();
-            $table->timestamp('created_at')->nullable();
             $table->timestamps();
         });
     }

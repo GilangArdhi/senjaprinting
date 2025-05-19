@@ -206,22 +206,22 @@
     <!-- </div> -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <!-- Midtrans Production -->
-    <script type="text/javascript" 
+    <!-- <script type="text/javascript" 
             src="https://app.midtrans.com/snap/snap.js" 
             data-client-key="{{ config('services.midtrans.clientKey') }}">
-    </script>
+    </script> -->
     <!-- Midtrans Sandbox -->
-    <!--<script type="text/javascript" 
+    <script type="text/javascript" 
             src="https://app.sandbox.midtrans.com/snap/snap.js" 
             data-client-key="{{ config('services.midtrans.clientKey') }}">
-    </script>-->
+    </script>
     <script>
       $("#donation_form").submit(function (event) {
         event.preventDefault();
 
         $.ajax({
           method: 'POST',
-          url: "/api/donation", //"{{ route('api.donation.store') }}",
+          url: "api/donation", //"{ { route('api.donation.store') }}",
           headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           },
@@ -241,20 +241,21 @@
             snap.pay(data.snap_token, {
               onSuccess: function (result) {
                 console.log(result);
-                // location.reload();
+                location.reload();
               },
               onPending: function (result) {
                 console.log(result);
-                // location.reload();
+                location.reload();
               },
               onError: function (result) {
                 console.log(result);
-                // location.reload();
+                location.reload();
               }
             });
-
+            
             return false;
           },
+          
         })
       })
     </script>

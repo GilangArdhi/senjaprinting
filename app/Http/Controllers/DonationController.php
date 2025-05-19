@@ -30,7 +30,7 @@ class DonationController extends Controller
     }
 
     public function store(Request $request) {
-        
+        dd($request->idProduk);
         DB::transaction(function () use ($request) {
             // dd($request->idProduk);
             // dd($request->amount);

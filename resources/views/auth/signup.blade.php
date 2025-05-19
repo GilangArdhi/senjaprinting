@@ -14,33 +14,33 @@
           
           <form action="daftar" method="post">
             @csrf
-            <h1 class="auth-title">Create an account and discover the benefits</h1>
-            <p class="auth-paragraph">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+              <h1 class="auth-title">Buat Akun</h1>
+              <p class="auth-paragraph">Masukkan data untuk membuat akun baru.</p>
             @error('nama')
               <div class="alert alert-danger" style="color: red;">{{ $message }}</div>
             @enderror
-            <input class="txt-input default-input" type="text" name="nama" placeholder="Nama">
+              <input class="txt-input default-input" type="text" name="nama" placeholder="Nama">
             @error('username')
               <div class="alert alert-danger" style="color: red;">{{ $message }}</div>
             @enderror
-            <input class="txt-input default-input" type="text" name="username" placeholder="Username">
+              <input class="txt-input default-input" type="text" name="username" placeholder="Username">
             @error('alamat')
               <div class="alert alert-danger" style="color: red;">{{ $message }}</div>
             @enderror
-            <input class="txt-input default-input" type="text" name="alamat" placeholder="Alamat">
+              <input class="txt-input default-input" type="text" name="alamat" placeholder="Alamat">
             @error('no_hp')
               <div class="alert alert-danger" style="color: red;">{{ $message }}</div>
             @enderror
-            <input class="txt-input default-input" type="number" name="no_hp" placeholder="No. Telepon">
+              <input class="txt-input default-input" type="number" name="no_hp" placeholder="No. Telepon">
             @error('email')
               <div class="alert alert-danger" style="color: red;">{{ $message }}</div>
             @enderror
-            <input class="txt-input default-input" type="email" name="email" placeholder="E-mail">
+              <input class="txt-input default-input" type="email" name="email" placeholder="E-mail">
             @error('password')
               <div class="alert alert-danger" style="color: red;">{{ $message }}</div>
             @enderror
             <input class="txt-input default-input" type="password" name="password" placeholder="Password">
-            <label class="checkbox-label" for="agree">I agree to the Google Terms of Service and Privacy Policy
+            <label class="checkbox-label" for="agree">Saya menyetujui kebijakan yang di buat oleh SenjaPrinting
               <input class="checkbox-input" type="checkbox" name="agree" id="agree"><span class="checkbox-custom" role="checkbox" aria-checked="false" aria-labelledby="agree">
                 <svg xmlns="http://www.w3.org/2000/svg" width="13.371" height="11.063" viewBox="0 0 13.371 11.063">
                   <path d="M11.763.25l-.876.929-6.1,6.473L2.955,5.821l-.9-.9-1.8,1.8.9.9L3.91,10.384l.929.929.9-.955,7-7.428L13.62,2Z" transform="translate(-0.249 -0.25)" fill="#fff"></path>
@@ -49,7 +49,7 @@
             <button class="btn btn--primary auth-btn top-margin" id="signup-button">Sign up</button>
           </form>
           <!-- <a id="resend-email-link" class="info-link" href="{{ route('verification.resend') }}">Tidak mendapat email?</a> -->
-          <a class="info-link" href="masuk">Are you already a member?</a>
+          <a class="info-link" href="masuk">Sudah Mendaftar?</a>
         </div>
       </div>
     </div>

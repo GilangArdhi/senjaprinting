@@ -59,7 +59,7 @@ Route::middleware(['auth', 'role:pelanggan'])->group(function(){
     Route::get('edit-keranjang', [LandingPage::class, 'editKeranjang']);
     Route::post('hapus-keranjang', [LandingPage::class, 'deleteItemKeranjang'])->name('hapus-keranjang');
     Route::get('/pembayaran', [LandingPage::class, 'pembayaran']);
-    Route::post('/api/donation', [DonationController::class, 'store'])->name('api.donation.store');
+    Route::post('api/donation', [DonationController::class, 'store'])->name('api.donation.store');
 }) ;
 
 Auth::routes();

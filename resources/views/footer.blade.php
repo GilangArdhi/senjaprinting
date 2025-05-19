@@ -14,7 +14,7 @@
       <footer class="spacing" style="color: #FFFFFF">
             <div class="footer">
               <div class="footer__group-links" style="width: 150px; height: 125px;">  
-                <img src="{{asset('storage/assets/images/logoSP.png')}}" alt="Logo SP">
+                <img style="width: 150px; height: 125px;" src="{{asset('storage/assets/images/logoSP.png')}}" alt="Logo SP">
                 <ul>
                   <li class="footer__link" style="font-size: 20px; text-align: center;"><a href="#">Senja Printing</a></li>
                 </ul>

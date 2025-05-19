@@ -218,7 +218,7 @@
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
                 <a href="{{asset('assets/tempad/index3.html')}}" class="brand-link">
                     <img
-                        src="{{asset('assets/tempad/dist/img/AdminLTELogo.png')}}"
+                        src="{{asset('assets/images/logo senja printing.png')}}"
                         alt="AdminLTE Logo"
                         class="brand-image img-circle elevation-3"
                         style="opacity: 0.8"
@@ -230,7 +230,7 @@
                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                         <div class="image">
                             <img
-                                src="{{asset('storage/assets/images/logo senja printing.png')}}"
+                                src="{{asset('assets/tempad/dist/img/AdminLTELogo.png')}}"
                                 class="img-circle elevation-2"
                                 alt="User Image"
                             />
