@@ -67,7 +67,21 @@
 
 > *(Tambahkan gambar jika ada, contoh: dashboard, form pemesanan, laporan)*  
 > Contoh:  
-> ![Dashboard](./screenshoot/screenshoot dashboard.png)
+>## Dashboard
+> ![Dashboard](https://github.com/GilangArdhi/senjaprinting/blob/main/public/screenshoot/screenshoot%20dashboard.png)
+>## Home Page
+> ![HomePage](https://github.com/GilangArdhi/senjaprinting/blob/main/public/screenshoot/Homepage_1.png)
+> ![HomePage](https://github.com/GilangArdhi/senjaprinting/blob/main/public/screenshoot/Homepage_2.png)
+> ![HomePage](https://github.com/GilangArdhi/senjaprinting/blob/main/public/screenshoot/Homepage_3.png)
+> ![HomePage](https://github.com/GilangArdhi/senjaprinting/blob/main/public/screenshoot/Homepage_4.png)
+> ## Daftar Produk
+> ![daftarproduk](https://github.com/GilangArdhi/senjaprinting/blob/main/public/screenshoot/list%20product.png)
+> ## Deskripsi Produk
+> ![deskripsiproduk](https://github.com/GilangArdhi/senjaprinting/blob/main/public/screenshoot/deskripsi%20prouct.png)
+> ## Login
+> ![Login](https://github.com/GilangArdhi/senjaprinting/blob/main/public/screenshoot/login.png)
+> ## Daftar
+> ![Daftar](https://github.com/GilangArdhi/senjaprinting/blob/main/public/screenshoot/daftar.png)
 
 ## 👤 Peran Saya
 
