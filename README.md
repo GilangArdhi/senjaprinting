@@ -67,7 +67,7 @@
 
 > *(Tambahkan gambar jika ada, contoh: dashboard, form pemesanan, laporan)*  
 > Contoh:  
-> ![Dashboard](screenshots/dashboard.png)
+> ![Dashboard](public/screenshots/screenshoot dashboard.png)
 
 ## 👤 Peran Saya
 
